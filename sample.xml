@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+  <row>
+    <category>science</category>
+    <points>20</points>
+    <question>Was bedeutet die Bezeichnung LHC?</question>
+    <answer>Large Hadron Collider</answer>
+    <options>Light Helium Construction</options>
+    <options>Left Height Certainty</options>
+    <options>Linear Helix Correction</options>
+  </row>
+  <row>
+    <category>culture</category>
+    <points>10</points>
+    <question>Wer sang das Lied &#x27;Currywurst&#x27;?</question>
+    <answer>Herberg Grönemeyer</answer>
+    <options>Helge Schneider</options>
+    <options>Dieter Nuhr</options>
+    <options>Wiegald Boning</options>
+  </row>
+</root>
