@@ -27,10 +27,10 @@ class Ui_Dialog(object):
         self.hardGroupBox.setObjectName(u"hardGroupBox")
         self.verticalLayout_3 = QVBoxLayout(self.hardGroupBox)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.listWidget_3 = QListWidget(self.hardGroupBox)
-        self.listWidget_3.setObjectName(u"listWidget_3")
+        self.hardListWidget = QListWidget(self.hardGroupBox)
+        self.hardListWidget.setObjectName(u"hardListWidget")
 
-        self.verticalLayout_3.addWidget(self.listWidget_3)
+        self.verticalLayout_3.addWidget(self.hardListWidget)
 
         self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
@@ -74,10 +74,10 @@ class Ui_Dialog(object):
         self.easyGroupBox.setObjectName(u"easyGroupBox")
         self.verticalLayout = QVBoxLayout(self.easyGroupBox)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.listWidget = QListWidget(self.easyGroupBox)
-        self.listWidget.setObjectName(u"listWidget")
+        self.easyListWidget = QListWidget(self.easyGroupBox)
+        self.easyListWidget.setObjectName(u"easyListWidget")
 
-        self.verticalLayout.addWidget(self.listWidget)
+        self.verticalLayout.addWidget(self.easyListWidget)
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
@@ -107,10 +107,10 @@ class Ui_Dialog(object):
         self.mediumGroupBox.setObjectName(u"mediumGroupBox")
         self.verticalLayout_2 = QVBoxLayout(self.mediumGroupBox)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.listWidget_2 = QListWidget(self.mediumGroupBox)
-        self.listWidget_2.setObjectName(u"listWidget_2")
+        self.mediumListWidget = QListWidget(self.mediumGroupBox)
+        self.mediumListWidget.setObjectName(u"mediumListWidget")
 
-        self.verticalLayout_2.addWidget(self.listWidget_2)
+        self.verticalLayout_2.addWidget(self.mediumListWidget)
 
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
@@ -140,10 +140,10 @@ class Ui_Dialog(object):
         self.extremeGroupBox.setObjectName(u"extremeGroupBox")
         self.verticalLayout_4 = QVBoxLayout(self.extremeGroupBox)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.listWidget_4 = QListWidget(self.extremeGroupBox)
-        self.listWidget_4.setObjectName(u"listWidget_4")
+        self.extremeListWidget = QListWidget(self.extremeGroupBox)
+        self.extremeListWidget.setObjectName(u"extremeListWidget")
 
-        self.verticalLayout_4.addWidget(self.listWidget_4)
+        self.verticalLayout_4.addWidget(self.extremeListWidget)
 
         self.horizontalLayout_4 = QHBoxLayout()
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")

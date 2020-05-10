@@ -1,6 +1,11 @@
+import re
+
 from PySide2.QtCore import Slot
 from PySide2.QtWidgets import QApplication, QMainWindow, QMessageBox
 
+from quiz_creator import quiz
+
+# UI class imports
 from quiz_creator.ui_classes.ui_mainwindow import Ui_MainWindow
 from quiz_creator.category_editor import CategoryEditor
 
@@ -10,6 +15,8 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+
+        self.qz = quiz.Quiz()
 
         # Setup signals and slots
         self.ui.cat1EditButton.clicked.connect(self.show_category_edit)
@@ -25,9 +32,9 @@ class MainWindow(QMainWindow):
 
     @Slot()
     def show_category_edit(self):
-        category_name = self.sender().objectName().rstrip('EditButton')
-        category_edit = CategoryEditor(category_name)
-        ret = category_edit.exec()
+        category_index = self.sender().objectName().rstrip('EditButton')
+        category_edit = CategoryEditor(self.qz.category(category_index))
+        exit_ok = category_edit.exec()
 
     @Slot()
     def about(self):

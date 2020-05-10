@@ -21,7 +21,7 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
-       <widget class="QListWidget" name="listWidget_3"/>
+       <widget class="QListWidget" name="hardListWidget"/>
       </item>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -72,7 +72,7 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QListWidget" name="listWidget"/>
+       <widget class="QListWidget" name="easyListWidget"/>
       </item>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout">
@@ -123,7 +123,7 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="QListWidget" name="listWidget_2"/>
+       <widget class="QListWidget" name="mediumListWidget"/>
       </item>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -174,7 +174,7 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_4">
       <item>
-       <widget class="QListWidget" name="listWidget_4"/>
+       <widget class="QListWidget" name="extremeListWidget"/>
       </item>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_4">
