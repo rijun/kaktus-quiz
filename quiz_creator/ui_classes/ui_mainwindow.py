@@ -23,13 +23,25 @@ class Ui_MainWindow(object):
         MainWindow.resize(421, 341)
         self.actionExit = QAction(MainWindow)
         self.actionExit.setObjectName(u"actionExit")
-        icon = QIcon(QIcon.fromTheme(u"application-exit"))
+        icon = QIcon()
+        iconThemeName = u"application-exit"
+        if QIcon.hasThemeIcon(iconThemeName):
+            icon = QIcon.fromTheme(iconThemeName)
+        else:
+            icon.addFile(u".", QSize(), QIcon.Normal, QIcon.Off)
+        
         self.actionExit.setIcon(icon)
         self.actionAboutQt = QAction(MainWindow)
         self.actionAboutQt.setObjectName(u"actionAboutQt")
         self.actionAbout = QAction(MainWindow)
         self.actionAbout.setObjectName(u"actionAbout")
-        icon1 = QIcon(QIcon.fromTheme(u"dialog-information"))
+        icon1 = QIcon()
+        iconThemeName = u"dialog-information"
+        if QIcon.hasThemeIcon(iconThemeName):
+            icon1 = QIcon.fromTheme(iconThemeName)
+        else:
+            icon1.addFile(u".", QSize(), QIcon.Normal, QIcon.Off)
+        
         self.actionAbout.setIcon(icon1)
         self.mainLayout = QWidget(MainWindow)
         self.mainLayout.setObjectName(u"mainLayout")

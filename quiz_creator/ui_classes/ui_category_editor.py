@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'category_edit.ui'
+## Form generated from reading UI file 'category_editor.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.14.2
 ##
@@ -85,19 +85,17 @@ class Ui_Dialog(object):
 
         self.horizontalLayout.addItem(self.horizontalSpacer)
 
-        self.removeEasyButton = QToolButton(self.easyGroupBox)
-        self.removeEasyButton.setObjectName(u"removeEasyButton")
-        icon2 = QIcon(QIcon.fromTheme(u"list-add"))
-        self.removeEasyButton.setIcon(icon2)
-
-        self.horizontalLayout.addWidget(self.removeEasyButton)
-
         self.addEasyButton = QToolButton(self.easyGroupBox)
         self.addEasyButton.setObjectName(u"addEasyButton")
-        icon3 = QIcon(QIcon.fromTheme(u"list-remove"))
-        self.addEasyButton.setIcon(icon3)
+        self.addEasyButton.setIcon(icon)
 
         self.horizontalLayout.addWidget(self.addEasyButton)
+
+        self.removeEasyButton = QToolButton(self.easyGroupBox)
+        self.removeEasyButton.setObjectName(u"removeEasyButton")
+        self.removeEasyButton.setIcon(icon1)
+
+        self.horizontalLayout.addWidget(self.removeEasyButton)
 
 
         self.verticalLayout.addLayout(self.horizontalLayout)
@@ -192,8 +190,8 @@ class Ui_Dialog(object):
         self.addHardButton.setText(QCoreApplication.translate("Dialog", u"...", None))
         self.removeHardButton.setText(QCoreApplication.translate("Dialog", u"...", None))
         self.easyGroupBox.setTitle(QCoreApplication.translate("Dialog", u"Easy", None))
-        self.removeEasyButton.setText(QCoreApplication.translate("Dialog", u"...", None))
         self.addEasyButton.setText(QCoreApplication.translate("Dialog", u"...", None))
+        self.removeEasyButton.setText(QCoreApplication.translate("Dialog", u"...", None))
         self.mediumGroupBox.setTitle(QCoreApplication.translate("Dialog", u"Medium", None))
         self.addMediumButton.setText(QCoreApplication.translate("Dialog", u"...", None))
         self.removeMediumButton.setText(QCoreApplication.translate("Dialog", u"...", None))
