@@ -1,7 +1,7 @@
 from PySide2.QtCore import Slot
 from PySide2.QtWidgets import QApplication, QMainWindow, QMessageBox
 
-from quiz_creator.ui_mainwindow import Ui_MainWindow
+from quiz_creator.ui_classes.ui_mainwindow import Ui_MainWindow
 from quiz_creator.category_edit import CategoryEdit
 
 

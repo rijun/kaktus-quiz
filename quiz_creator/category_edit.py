@@ -1,6 +1,6 @@
 from PySide2.QtWidgets import QDialog
 
-from quiz_creator.ui_category_edit import Ui_Dialog
+from quiz_creator.ui_classes.ui_category_edit import Ui_Dialog
 
 
 class CategoryEdit(QDialog):
