@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>421</width>
-    <height>341</height>
+    <width>764</width>
+    <height>571</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,164 +15,167 @@
   </property>
   <widget class="QWidget" name="mainLayout">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="6" column="1">
-     <widget class="QProgressBar" name="cat6ProgressBar">
-      <property name="value">
-       <number>24</number>
+    <item row="0" column="0" colspan="5">
+     <widget class="QGroupBox" name="progressGroupBox">
+      <property name="title">
+       <string>GroupBox</string>
       </property>
-     </widget>
-    </item>
-    <item row="4" column="0">
-     <widget class="QLabel" name="cat4Label">
-      <property name="text">
-       <string>Category 4</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="cat1Label">
-      <property name="text">
-       <string>Category 1</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1">
-     <widget class="QProgressBar" name="cat3ProgressBar">
-      <property name="value">
-       <number>24</number>
-      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="1" column="1">
+        <widget class="QProgressBar" name="cat2ProgressBar">
+         <property name="value">
+          <number>24</number>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="cat3Label">
+         <property name="text">
+          <string>Category 3</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="cat4Label">
+         <property name="text">
+          <string>Category 4</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="cat5Label">
+         <property name="text">
+          <string>Category 5</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QProgressBar" name="cat5ProgressBar">
+         <property name="value">
+          <number>24</number>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QProgressBar" name="cat1ProgressBar">
+         <property name="value">
+          <number>24</number>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QProgressBar" name="cat3ProgressBar">
+         <property name="value">
+          <number>24</number>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="cat2Label">
+         <property name="text">
+          <string>Category 2</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QProgressBar" name="cat6ProgressBar">
+         <property name="value">
+          <number>24</number>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QProgressBar" name="cat4ProgressBar">
+         <property name="value">
+          <number>24</number>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="cat6Label">
+         <property name="text">
+          <string>Category 6</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="cat1Label">
+         <property name="text">
+          <string>Category 1</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2" rowspan="6">
+        <widget class="QColumnView" name="columnView_2"/>
+       </item>
+      </layout>
      </widget>
     </item>
     <item row="2" column="0">
-     <widget class="QLabel" name="cat2Label">
+     <widget class="QPushButton" name="configureButton">
       <property name="text">
-       <string>Category 2</string>
+       <string>Configure Quiz</string>
       </property>
      </widget>
     </item>
-    <item row="5" column="0">
-     <widget class="QLabel" name="cat5Label">
+    <item row="2" column="4">
+     <widget class="QPushButton" name="generateButton">
       <property name="text">
-       <string>Category 5</string>
+       <string>Generate Quiz</string>
       </property>
      </widget>
     </item>
-    <item row="7" column="0" colspan="3">
-     <layout class="QHBoxLayout" name="buttonLayout">
-      <item>
-       <widget class="QPushButton" name="configButton">
-        <property name="text">
-         <string>Configure Quiz</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QPushButton" name="generateButton">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="text">
-         <string>Generate Quiz</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="2" column="1">
-     <widget class="QProgressBar" name="cat2ProgressBar">
-      <property name="value">
-       <number>24</number>
+    <item row="1" column="0" colspan="5">
+     <widget class="QGroupBox" name="categoryGroupBox">
+      <property name="title">
+       <string>GroupBox</string>
       </property>
-     </widget>
-    </item>
-    <item row="5" column="1">
-     <widget class="QProgressBar" name="cat5ProgressBar">
-      <property name="value">
-       <number>24</number>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="0">
-     <widget class="QLabel" name="cat3Label">
-      <property name="text">
-       <string>Category 3</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="1">
-     <widget class="QProgressBar" name="cat4ProgressBar">
-      <property name="value">
-       <number>24</number>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="2">
-     <widget class="QPushButton" name="cat1EditButton">
-      <property name="text">
-       <string>Edit</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="0">
-     <widget class="QLabel" name="cat6Label">
-      <property name="text">
-       <string>Category 6</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QProgressBar" name="cat1ProgressBar">
-      <property name="value">
-       <number>24</number>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="2">
-     <widget class="QPushButton" name="cat2EditButton">
-      <property name="text">
-       <string>Edit</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="2">
-     <widget class="QPushButton" name="cat3EditButton">
-      <property name="text">
-       <string>Edit</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="2">
-     <widget class="QPushButton" name="cat4EditButton">
-      <property name="text">
-       <string>Edit</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="2">
-     <widget class="QPushButton" name="cat5EditButton">
-      <property name="text">
-       <string>Edit</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="2">
-     <widget class="QPushButton" name="cat6EditButton">
-      <property name="text">
-       <string>Edit</string>
-      </property>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="1" column="0">
+        <widget class="QColumnView" name="columnView"/>
+       </item>
+       <item row="1" column="1">
+        <layout class="QVBoxLayout" name="toolButtonGroup">
+         <item>
+          <widget class="QToolButton" name="toolButton_2">
+           <property name="text">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QToolButton" name="toolButton">
+           <property name="text">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QToolButton" name="toolButton_3">
+           <property name="text">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item row="0" column="0">
+        <widget class="QComboBox" name="categorySelector"/>
+       </item>
+      </layout>
      </widget>
     </item>
    </layout>
@@ -182,8 +185,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>421</width>
-     <height>30</height>
+     <width>764</width>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
