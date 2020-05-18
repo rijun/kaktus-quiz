@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 
-#include "question.h"
+#include "questionitem.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -24,6 +24,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    QVector<Question> m_questionList;
+    QVector<QuestionItem> m_questionList;
 };
 #endif // MAINWINDOW_H
