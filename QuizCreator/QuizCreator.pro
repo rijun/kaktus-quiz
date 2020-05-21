@@ -18,12 +18,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    questionitem.cpp
+    quizitem.cpp \
+    quizmodel.cpp
 
 HEADERS += \
     mainwindow.h \
     question.h \
-    questionitem.h
+    quizitem.h \
+    quizmodel.h
 
 FORMS += \
     mainwindow.ui \
@@ -37,3 +39,9 @@ TRANSLATIONS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    default.txt
+
+RESOURCES += \
+    quizcreator.qrc

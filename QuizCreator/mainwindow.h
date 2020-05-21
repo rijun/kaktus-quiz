@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 
-#include "questionitem.h"
+#include "quizitem.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -22,8 +22,13 @@ private slots:
 
     void on_actionAboutQt_triggered();
 
+    void on_generateButton_clicked();
+
+    void insertRow();
+    void on_addButton_clicked();
+
 private:
     Ui::MainWindow *ui;
-    QVector<QuestionItem> m_questionList;
+    QVector<QuizItem> m_questionList;
 };
 #endif // MAINWINDOW_H

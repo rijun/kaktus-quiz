@@ -1,19 +1,51 @@
 ﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "quizmodel.h"
 
 #include <QMessageBox>
+#include <QFile>
+
+#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    const QStringList headers({tr("Title"), tr("Description")});
+
+    QuizModel *model = new QuizModel(headers);
+
+    ui->questionView->setModel(model);
+    for (int column = 0; column < model->columnCount(); ++column) {
+        ui->questionView->resizeColumnToContents(column);
+    }
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::insertRow()
+{
+    const QModelIndex index = ui->questionView->selectionModel()->currentIndex();
+    QAbstractItemModel *model = ui->questionView->model();
+
+    if (!model->insertRow(index.row()+1, index.parent())) {
+        return;
+    }
+
+    //updateActions();
+
+    for (int column = 0; column < model->columnCount(index.parent()); ++column) {
+        const QModelIndex child = model->index(index.row() + 1, column, index.parent());
+        model->setData(child, QVariant(tr("[No data]")), Qt::EditRole);
+    }
+}
+
+/* Action slots */
 
 void MainWindow::on_actionAboutQt_triggered()
 {
@@ -50,4 +82,16 @@ void MainWindow::on_actionAbout_triggered()
                        "LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,"
                        "OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE"
                        "SOFTWARE.");
+}
+
+/* Button slots */
+
+void MainWindow::on_generateButton_clicked()
+{
+    qDebug() << "Generation";
+}
+
+void MainWindow::on_addButton_clicked()
+{
+    insertRow();
 }
