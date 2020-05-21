@@ -29,6 +29,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    QVector<QuizItem> m_questionList;
+    QStringList m_categoryNames = { "Wissenschaft", "Kultur", "Erdkunde", "Religion", "Allgemein", "Zeitgeschehen" };
+    QStringList m_difficulties = { "Easy", "Medium", "Hard", "Extreme" };
 };
 #endif // MAINWINDOW_H

@@ -12,7 +12,7 @@ class QuizModel : public QAbstractItemModel
     Q_OBJECT
 
 public:
-    QuizModel(const QStringList &headers, QObject *parent = nullptr);
+    QuizModel(const QStringList &categories, const QStringList &difficulties, QObject *parent = nullptr);
     ~QuizModel();
 
     QVariant data(const QModelIndex &index, int role) const override;
@@ -42,9 +42,10 @@ public:
                     const QModelIndex &parent = QModelIndex()) override;
 
 private:
-    QuizItem *getItem(const QModelIndex &index) const;
+    QuizItem *m_rootItem;
 
-    QuizItem *rootItem;
+    QuizItem *getItem(const QModelIndex &index) const;
+    void setupModelData(const QStringList &categories, const QStringList &difficulties, QuizItem *parent);
 };
 
 #endif // QUIZMODEL_H

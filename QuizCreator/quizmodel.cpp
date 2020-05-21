@@ -1,26 +1,23 @@
 ﻿#include "quizmodel.h"
 #include "quizitem.h"
 
-QuizModel::QuizModel(const QStringList &headers, QObject *parent)
+QuizModel::QuizModel(const QStringList &categories, const QStringList &difficulties, QObject *parent)
     : QAbstractItemModel(parent)
 {
     QVector<QVariant> rootData;
-    for (const QString &header : headers)
-        rootData << header;
-
-    rootItem = new QuizItem(rootData);
-    //setupModelData(data.split('\n'), rootItem);
+    m_rootItem = new QuizItem(rootData << "");
+    setupModelData(categories, difficulties, m_rootItem);
 }
 
 QuizModel::~QuizModel()
 {
-    delete rootItem;
+    delete m_rootItem;
 }
 
 int QuizModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    return rootItem->columnCount();
+    return m_rootItem->columnCount();
 }
 
 QVariant QuizModel::data(const QModelIndex &index, int role) const
@@ -54,14 +51,14 @@ QuizItem *QuizModel::getItem(const QModelIndex &index) const
         if (item)
             return item;
     }
-    return rootItem;
+    return m_rootItem;
 }
 
 QVariant QuizModel::headerData(int section, Qt::Orientation orientation,
                                int role) const
 {
     if (orientation == Qt::Horizontal && role == Qt::DisplayRole) {
-        return rootItem->data(section);
+        return m_rootItem->data(section);
     }
 
     return QVariant();
@@ -88,7 +85,7 @@ QModelIndex QuizModel::index(int row, int column, const QModelIndex &parent) con
 bool QuizModel::insertColumns(int position, int columns, const QModelIndex &parent)
 {
     beginInsertColumns(parent, position, position + columns - 1);
-    const bool success = rootItem->insertColumns(position, columns);
+    const bool success = m_rootItem->insertColumns(position, columns);
     endInsertColumns();
 
     return success;
@@ -102,7 +99,7 @@ bool QuizModel::insertRows(int position, int rows, const QModelIndex &parent)
     }
 
     beginInsertRows(parent, position, position + rows - 1);
-    const bool success = parentItem->insertChildren(position, rows, rootItem->columnCount());
+    const bool success = parentItem->insertChildren(position, rows, m_rootItem->columnCount());
     endInsertRows();
 
     return success;
@@ -117,7 +114,7 @@ QModelIndex QuizModel::parent(const QModelIndex &index) const
     QuizItem *childItem = getItem(index);
     QuizItem *parentItem = childItem ? childItem->parent() : nullptr;
 
-    if (parentItem == rootItem || !parentItem) {
+    if (parentItem == m_rootItem || !parentItem) {
         return QModelIndex();
     }
 
@@ -127,10 +124,10 @@ QModelIndex QuizModel::parent(const QModelIndex &index) const
 bool QuizModel::removeColumns(int position, int columns, const QModelIndex &parent)
 {
     beginRemoveColumns(parent, position, position + columns - 1);
-    const bool success = rootItem->removeColumns(position, columns);
+    const bool success = m_rootItem->removeColumns(position, columns);
     endRemoveColumns();
 
-    if (rootItem->columnCount() == 0) {
+    if (m_rootItem->columnCount() == 0) {
         removeRows(0, rowCount());
     }
 
@@ -181,11 +178,27 @@ bool QuizModel::setHeaderData(int section, Qt::Orientation orientation,
         return false;
     }
 
-    const bool result = rootItem->setData(section, value);
+    const bool result = m_rootItem->setData(section, value);
 
     if (result) {
         emit headerDataChanged(orientation, section, section);
     }
 
     return result;
+}
+
+void QuizModel::setupModelData(const QStringList &categories, const QStringList &difficulties, QuizItem *parent)
+{
+    for (QString category : categories) {
+        parent->insertChildren(parent->childCount(), 1, m_rootItem->columnCount());
+
+        QuizItem *currentCategory = parent->child(parent->childCount() - 1);
+
+        currentCategory->setData(0, category);
+
+        for (QString difficulty : difficulties) {
+            currentCategory->insertChildren(currentCategory->childCount(), 1, m_rootItem->columnCount());
+            currentCategory->child(currentCategory->childCount() - 1)->setData(0, difficulty);
+        }
+    }
 }

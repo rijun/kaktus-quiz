@@ -8,14 +8,11 @@
 #include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
-    const QStringList headers({tr("Title"), tr("Description")});
-
-    QuizModel *model = new QuizModel(headers);
+    QuizModel *model = new QuizModel(m_categoryNames, m_difficulties);
 
     ui->questionView->setModel(model);
     for (int column = 0; column < model->columnCount(); ++column) {
