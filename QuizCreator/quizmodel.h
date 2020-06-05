@@ -7,6 +7,8 @@
 
 #include "quizitem.h"
 
+constexpr int COLS = 3;
+
 class QuizModel : public QAbstractTableModel
 {
     Q_OBJECT
@@ -14,13 +16,15 @@ public:
     QuizModel(QObject *parent = nullptr);
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;
+    QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
 private:
-    enum class ColumnNames { QUESTION, DIFFICULTY };
+    enum class ColumnNames { Question, Category, Difficulty };
 
     QVector<QuizItem> m_data;
 
+    const QVector<QString> m_catList = { "Wissenschaft", "Kultur", "Religion", "Erdkunde", "Zeitgeschehen", "Allgemein" };
     const QVector<QString> m_diffList = { "Easy", "Medium", "Hard", "Extreme" };
 };
 

@@ -15,9 +15,9 @@ MainWindow::MainWindow(QWidget *parent)
     QuizModel *model = new QuizModel();
 
     ui->questionView->setModel(model);
-    for (int column = 0; column < model->columnCount(); ++column) {
-        ui->questionView->resizeColumnToContents(column);
-    }
+//    for (int column = 0; column < model->columnCount(); ++column) {
+//        ui->questionView->resizeColumnToContents(column);
+//    }
 }
 
 MainWindow::~MainWindow()

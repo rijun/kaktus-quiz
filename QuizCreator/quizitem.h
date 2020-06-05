@@ -10,7 +10,8 @@ struct QuizItem
     QString question;
     QString answer;
     QVector<QString> options;
-    int difficulty;
+    unsigned int category;
+    unsigned int difficulty;
 };
 
 #endif // QUIZITEM_H
