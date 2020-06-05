@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    QuizModel *model = new QuizModel(m_categoryNames, m_difficulties);
+    QuizModel *model = new QuizModel();
 
     ui->questionView->setModel(model);
     for (int column = 0; column < model->columnCount(); ++column) {
@@ -27,19 +27,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::insertRow()
 {
-    const QModelIndex index = ui->questionView->selectionModel()->currentIndex();
-    QAbstractItemModel *model = ui->questionView->model();
-
-    if (!model->insertRow(index.row()+1, index.parent())) {
-        return;
-    }
-
-    //updateActions();
-
-    for (int column = 0; column < model->columnCount(index.parent()); ++column) {
-        const QModelIndex child = model->index(index.row() + 1, column, index.parent());
-        model->setData(child, QVariant(tr("[No data]")), Qt::EditRole);
-    }
+    return;
 }
 
 /* Action slots */
