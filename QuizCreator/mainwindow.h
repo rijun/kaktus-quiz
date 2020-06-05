@@ -9,6 +9,8 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
+class QModelIndex;
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -24,8 +26,11 @@ private slots:
 
     void on_generateButton_clicked();
 
-    void insertRow();
     void on_addButton_clicked();
+    void on_editButton_clicked();
+
+    void editQuizItem(const QModelIndex &index);
+
 
 private:
     Ui::MainWindow *ui;

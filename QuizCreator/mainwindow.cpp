@@ -15,19 +15,16 @@ MainWindow::MainWindow(QWidget *parent)
     QuizModel *model = new QuizModel();
 
     ui->questionView->setModel(model);
-//    for (int column = 0; column < model->columnCount(); ++column) {
-//        ui->questionView->resizeColumnToContents(column);
-//    }
+    ui->questionView->resizeColumnsToContents();
+    ui->questionView->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->questionView->setSelectionMode(QAbstractItemView::SingleSelection);
+
+    connect(ui->questionView, &QAbstractItemView::doubleClicked, this, &MainWindow::editQuizItem);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
-}
-
-void MainWindow::insertRow()
-{
-    return;
 }
 
 /* Action slots */
@@ -78,5 +75,14 @@ void MainWindow::on_generateButton_clicked()
 
 void MainWindow::on_addButton_clicked()
 {
-    insertRow();
+    //insertRow();
+}
+
+void MainWindow::on_editButton_clicked()
+{
+    editQuizItem(ui->questionView->currentIndex());
+}
+
+void MainWindow::editQuizItem(const QModelIndex &index) {
+    qDebug() << "Test: " << index.row();
 }

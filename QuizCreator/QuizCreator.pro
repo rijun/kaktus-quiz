@@ -22,7 +22,6 @@ SOURCES += \
 
 HEADERS += \
     mainwindow.h \
-    question.h \
     quizitem.h \
     quizmodel.h
 
