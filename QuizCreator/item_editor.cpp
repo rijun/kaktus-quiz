@@ -31,3 +31,15 @@ void ItemEditor::setQuizItem(const QuizItem &item)
     ui->categoryComboBox->setCurrentIndex(m_quizItem.category);
     ui->difficultyComboBox->setCurrentIndex(m_quizItem.difficulty);
 }
+
+QuizItem ItemEditor::quizItem()
+{
+    m_quizItem.question = ui->questionLineEdit->text();
+    m_quizItem.answer = ui->answerLineEdit->text();
+    m_quizItem.options.replace(0, ui->option1LineEdit->text());
+    m_quizItem.options.replace(1, ui->option2LineEdit->text());
+    m_quizItem.options.replace(2, ui->option3LineEdit->text());
+    m_quizItem.category = ui->categoryComboBox->currentIndex();
+    m_quizItem.difficulty = ui->difficultyComboBox->currentIndex();
+    return m_quizItem;
+}

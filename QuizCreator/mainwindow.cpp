@@ -8,7 +8,8 @@
 #include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent), ui(new Ui::MainWindow), m_model(new QuizModel)
+    : QMainWindow(parent), ui(new Ui::MainWindow), m_model(new QuizModel),
+      m_itemEditor(new ItemEditor(this, &m_model->categoryList(), &m_model->difficultyList()))
 {
     ui->setupUi(this);
 
@@ -18,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->questionView->setSelectionMode(QAbstractItemView::SingleSelection);
 
     connect(ui->questionView, &QAbstractItemView::doubleClicked, this, &MainWindow::showQuizEditor);
+    connect(m_itemEditor, &QDialog::finished, this, &MainWindow::editQuizModel);
 }
 
 MainWindow::~MainWindow()
@@ -83,20 +85,18 @@ void MainWindow::on_editButton_clicked()
 
 void MainWindow::showQuizEditor(const QModelIndex &index)
 {
-    ItemEditor *dialog = new ItemEditor(this, &m_model->categoryList(), &m_model->difficultyList());
-    dialog->setQuizItem(m_model->quizItemAt(index));
-    connect(dialog, &QDialog::finished, this, &MainWindow::editQuizModel);
-    dialog->open();
+    m_currentIndex = index;
+    m_itemEditor->setQuizItem(m_model->quizItemAt(index));
+    m_itemEditor->open();
 }
 
 void MainWindow::editQuizModel(int result)
 {
     switch (result) {
     case QDialog::Accepted:
-        qDebug() << "Accepted";
+        m_model->setData(m_currentIndex, QVariant::fromValue(m_itemEditor->quizItem()));
         break;
     case QDialog::Rejected:
-        qDebug() << "Rejected";
         break;
     }
 }

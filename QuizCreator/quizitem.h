@@ -3,6 +3,7 @@
 
 #include <QString>
 #include <QVector>
+#include <QMetaType>
 
 struct QuizItem
 {
@@ -12,5 +13,7 @@ struct QuizItem
     unsigned int category = 0;
     unsigned int difficulty = 0;
 };
+
+Q_DECLARE_METATYPE(QuizItem)
 
 #endif // QUIZITEM_H

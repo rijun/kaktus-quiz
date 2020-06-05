@@ -55,6 +55,20 @@ QVariant QuizModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
+bool QuizModel::setData(const QModelIndex &index, const QVariant &value, int role) {
+    if (role == Qt::EditRole) {
+        if (!checkIndex(index)) { return false; }
+
+        m_data.replace(index.row(), value.value<QuizItem>());
+
+        emit dataChanged(index, index, {Qt::DisplayRole});
+
+        return true;
+    }
+
+    return false;
+}
+
 Qt::ItemFlags QuizModel::flags(const QModelIndex &index) const
 {
     (void) index;   // Suppress warning

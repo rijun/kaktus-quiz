@@ -18,6 +18,7 @@ public:
     ~ItemEditor();
 
     void setQuizItem(const QuizItem &item);
+    QuizItem quizItem();
 
 private:
     Ui::ItemEditor *ui;
