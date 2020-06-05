@@ -16,19 +16,21 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    item_editor.cpp \
     main.cpp \
     mainwindow.cpp \
     quizmodel.cpp
 
 HEADERS += \
+    item_editor.h \
     mainwindow.h \
     quizitem.h \
     quizmodel.h
 
 FORMS += \
+    item_editor.ui \
     mainwindow.ui \
-    category_editor.ui \
-    question_editor.ui
+    category_editor.ui
 
 TRANSLATIONS += \
     QuizCreator_de_DE.ts

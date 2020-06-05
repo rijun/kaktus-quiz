@@ -1,25 +1,23 @@
 ﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "quizmodel.h"
+#include "item_editor.h"
 
 #include <QMessageBox>
 #include <QFile>
-
 #include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent), ui(new Ui::MainWindow)
+    : QMainWindow(parent), ui(new Ui::MainWindow), m_model(new QuizModel)
 {
     ui->setupUi(this);
 
-    QuizModel *model = new QuizModel();
-
-    ui->questionView->setModel(model);
+    ui->questionView->setModel(m_model);
     ui->questionView->resizeColumnsToContents();
     ui->questionView->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->questionView->setSelectionMode(QAbstractItemView::SingleSelection);
 
-    connect(ui->questionView, &QAbstractItemView::doubleClicked, this, &MainWindow::editQuizItem);
+    connect(ui->questionView, &QAbstractItemView::doubleClicked, this, &MainWindow::showQuizEditor);
 }
 
 MainWindow::~MainWindow()
@@ -80,9 +78,25 @@ void MainWindow::on_addButton_clicked()
 
 void MainWindow::on_editButton_clicked()
 {
-    editQuizItem(ui->questionView->currentIndex());
+    showQuizEditor(ui->questionView->currentIndex());
 }
 
-void MainWindow::editQuizItem(const QModelIndex &index) {
-    qDebug() << "Test: " << index.row();
+void MainWindow::showQuizEditor(const QModelIndex &index)
+{
+    ItemEditor *dialog = new ItemEditor(this, &m_model->categoryList(), &m_model->difficultyList());
+    dialog->setQuizItem(m_model->quizItemAt(index));
+    connect(dialog, &QDialog::finished, this, &MainWindow::editQuizModel);
+    dialog->open();
+}
+
+void MainWindow::editQuizModel(int result)
+{
+    switch (result) {
+    case QDialog::Accepted:
+        qDebug() << "Accepted";
+        break;
+    case QDialog::Rejected:
+        qDebug() << "Rejected";
+        break;
+    }
 }

@@ -19,14 +19,19 @@ public:
     QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     Qt::ItemFlags flags(const QModelIndex &index) const override;
+    QuizItem quizItemAt(const QModelIndex &index) const;
+    // void storeQuizItemAt(const QModelIndex &index);
+
+    const QVector<QString> &categoryList() const;
+    const QVector<QString> &difficultyList() const;
 
 private:
     enum class ColumnNames { Category, Difficulty, Question };
 
     QVector<QuizItem> m_data;
 
-    const QVector<QString> m_catList = { "Wissenschaft", "Kultur", "Religion", "Erdkunde", "Zeitgeschehen", "Allgemein" };
-    const QVector<QString> m_diffList = { "Easy", "Medium", "Hard", "Extreme" };
+    const QVector<QString> m_categoryList { "Wissenschaft", "Kultur", "Religion", "Erdkunde", "Zeitgeschehen", "Allgemein" };
+    const QVector<QString> m_difficultyList { "Easy", "Medium", "Hard", "Extreme" };
 };
 
 #endif // QUIZMODEL_H

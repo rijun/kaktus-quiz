@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Dialog</class>
- <widget class="QDialog" name="Dialog">
+ <class>ItemEditor</class>
+ <widget class="QDialog" name="ItemEditor">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>433</width>
-    <height>238</height>
+    <width>438</width>
+    <height>270</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,6 +21,9 @@
        <property name="text">
         <string>Question</string>
        </property>
+       <property name="buddy">
+        <cstring>questionLineEdit</cstring>
+       </property>
       </widget>
      </item>
      <item row="0" column="1">
@@ -31,6 +34,9 @@
        <property name="text">
         <string>Answer</string>
        </property>
+       <property name="buddy">
+        <cstring>answerLineEdit</cstring>
+       </property>
       </widget>
      </item>
      <item row="1" column="1">
@@ -39,7 +45,10 @@
      <item row="2" column="0">
       <widget class="QLabel" name="option1Label">
        <property name="text">
-        <string>Option</string>
+        <string>Option 1</string>
+       </property>
+       <property name="buddy">
+        <cstring>option1LineEdit</cstring>
        </property>
       </widget>
      </item>
@@ -49,7 +58,10 @@
      <item row="3" column="0">
       <widget class="QLabel" name="option2Label">
        <property name="text">
-        <string>Option</string>
+        <string>Option 2</string>
+       </property>
+       <property name="buddy">
+        <cstring>option2LineEdit</cstring>
        </property>
       </widget>
      </item>
@@ -59,12 +71,41 @@
      <item row="4" column="0">
       <widget class="QLabel" name="option4Label">
        <property name="text">
-        <string>Option</string>
+        <string>Option 3</string>
+       </property>
+       <property name="buddy">
+        <cstring>option3LineEdit</cstring>
        </property>
       </widget>
      </item>
      <item row="4" column="1">
       <widget class="QLineEdit" name="option3LineEdit"/>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="categoryLabel">
+       <property name="text">
+        <string>Category</string>
+       </property>
+       <property name="buddy">
+        <cstring>categoryComboBox</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QComboBox" name="categoryComboBox"/>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="difficultyLabel">
+       <property name="text">
+        <string>Difficulty</string>
+       </property>
+       <property name="buddy">
+        <cstring>difficultyComboBox</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QComboBox" name="difficultyComboBox"/>
      </item>
     </layout>
    </item>
@@ -85,7 +126,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>Dialog</receiver>
+   <receiver>ItemEditor</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -101,7 +142,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>Dialog</receiver>
+   <receiver>ItemEditor</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

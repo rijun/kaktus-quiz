@@ -10,6 +10,7 @@ namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
 class QModelIndex;
+class QuizModel;
 
 class MainWindow : public QMainWindow
 {
@@ -29,12 +30,11 @@ private slots:
     void on_addButton_clicked();
     void on_editButton_clicked();
 
-    void editQuizItem(const QModelIndex &index);
-
+    void showQuizEditor(const QModelIndex &index);
+    void editQuizModel(int result);
 
 private:
     Ui::MainWindow *ui;
-    QStringList m_categoryNames = { "Wissenschaft", "Kultur", "Erdkunde", "Religion", "Allgemein", "Zeitgeschehen" };
-    QStringList m_difficulties = { "Easy", "Medium", "Hard", "Extreme" };
+    QuizModel *m_model;
 };
 #endif // MAINWINDOW_H

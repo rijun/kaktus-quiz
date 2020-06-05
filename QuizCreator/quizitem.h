@@ -6,12 +6,11 @@
 
 struct QuizItem
 {
-    QuizItem() {};
-    QString question;
-    QString answer;
-    QVector<QString> options;
-    unsigned int category;
-    unsigned int difficulty;
+    QString question  = "";
+    QString answer ="";
+    QVector<QString> options { "", "", "" };
+    unsigned int category = 0;
+    unsigned int difficulty = 0;
 };
 
 #endif // QUIZITEM_H

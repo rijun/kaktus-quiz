@@ -2,8 +2,6 @@
 #include "quizitem.h"
 
 #include <QDebug>
-#include <QFont>
-#include <QBrush>
 
 QuizModel::QuizModel(QObject *parent)
     : QAbstractTableModel(parent)
@@ -46,9 +44,10 @@ QVariant QuizModel::data(const QModelIndex &index, int role) const
 {
     if (role == Qt::DisplayRole) {
         if (index.column() == static_cast<int>(ColumnNames::Category)) {
-            return m_catList.at(m_data.at(index.row()).category);
+            int idx = m_data.at(index.row()).category;
+            return m_categoryList.at(idx);
         } else if (index.column() == static_cast<int>(ColumnNames::Difficulty)) {
-            return m_diffList.at(m_data.at(index.row()).difficulty);
+            return m_difficultyList.at(m_data.at(index.row()).difficulty);
         } else if (index.column() == static_cast<int>(ColumnNames::Question)) {
             return m_data.at(index.row()).question;
         }
@@ -58,5 +57,21 @@ QVariant QuizModel::data(const QModelIndex &index, int role) const
 
 Qt::ItemFlags QuizModel::flags(const QModelIndex &index) const
 {
+    (void) index;   // Suppress warning
     return Qt::ItemIsSelectable | Qt::ItemIsEnabled;
+}
+
+QuizItem QuizModel::quizItemAt(const QModelIndex &index) const
+{
+    return m_data.at(index.row());
+}
+
+const QVector<QString> &QuizModel::categoryList() const
+{
+    return m_categoryList;
+}
+
+const QVector<QString> &QuizModel::difficultyList() const
+{
+    return m_difficultyList;
 }
