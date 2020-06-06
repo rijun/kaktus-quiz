@@ -5,7 +5,7 @@
 #include <QModelIndex>
 #include <QVariant>
 
-#include "quizitem.h"
+#include "QuizItem.h"
 
 constexpr int COLS = 3;
 

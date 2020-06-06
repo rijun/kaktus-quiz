@@ -1,5 +1,5 @@
-﻿#include "quizmodel.h"
-#include "quizitem.h"
+﻿#include "QuizModel.h"
+#include "QuizItem.h"
 
 #include <QDebug>
 

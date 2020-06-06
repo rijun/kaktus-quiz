@@ -3,7 +3,7 @@
 
 #include <QDialog>
 
-#include "quizitem.h"
+#include "QuizItem.h"
 
 namespace Ui {
 class ItemEditor;

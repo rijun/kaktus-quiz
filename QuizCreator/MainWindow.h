@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <QModelIndex>
 
-#include "quizitem.h"
+#include "QuizItem.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

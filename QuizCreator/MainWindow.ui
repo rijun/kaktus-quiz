@@ -18,7 +18,7 @@
     <item row="0" column="0" colspan="5">
      <widget class="QGroupBox" name="progressGroupBox">
       <property name="title">
-       <string>GroupBox</string>
+       <string>Overview</string>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
        <item row="3" column="0">
@@ -128,7 +128,7 @@
     <item row="1" column="0" colspan="5">
      <widget class="QGroupBox" name="questionGroupBox">
       <property name="title">
-       <string>GroupBox</string>
+       <string>Questions</string>
       </property>
       <layout class="QGridLayout" name="gridLayout_3">
        <item row="3" column="0">
@@ -150,7 +150,7 @@
            </property>
            <property name="icon">
             <iconset resource="quizcreator.qrc">
-             <normaloff>:/assets/plus.svg</normaloff>:/assets/plus.svg</iconset>
+             <normaloff>:/icons/plus.svg</normaloff>:/icons/plus.svg</iconset>
            </property>
           </widget>
          </item>
@@ -161,7 +161,7 @@
            </property>
            <property name="icon">
             <iconset resource="quizcreator.qrc">
-             <normaloff>:/assets/minus.svg</normaloff>:/assets/minus.svg</iconset>
+             <normaloff>:/icons/minus.svg</normaloff>:/icons/minus.svg</iconset>
            </property>
           </widget>
          </item>
@@ -172,7 +172,7 @@
            </property>
            <property name="icon">
             <iconset resource="quizcreator.qrc">
-             <normaloff>:/assets/edit.svg</normaloff>:/assets/edit.svg</iconset>
+             <normaloff>:/icons/edit.svg</normaloff>:/icons/edit.svg</iconset>
            </property>
           </widget>
          </item>

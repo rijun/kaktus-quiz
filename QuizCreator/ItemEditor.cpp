@@ -1,5 +1,5 @@
-﻿#include "item_editor.h"
-#include "ui_item_editor.h"
+﻿#include "ItemEditor.h"
+#include "ui_ItemEditor.h"
 
 ItemEditor::ItemEditor(QWidget *parent, const QVector<QString> *catListPtr, const QVector<QString> *diffListPtr) :
     QDialog(parent), ui(new Ui::ItemEditor), m_categoryListPtr(catListPtr), m_difficultyListPtr(diffListPtr)
