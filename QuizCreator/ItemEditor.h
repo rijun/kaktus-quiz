@@ -23,7 +23,6 @@ public:
 private:
     Ui::ItemEditor *ui;
     QuizItem m_quizItem;
-
     const QVector<QString> *m_categoryListPtr;
     const QVector<QString> *m_difficultyListPtr;
 };

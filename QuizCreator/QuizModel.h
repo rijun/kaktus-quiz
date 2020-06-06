@@ -20,9 +20,8 @@ public:
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
     Qt::ItemFlags flags(const QModelIndex &index) const override;
-    QuizItem quizItemAt(const QModelIndex &index) const;
-    // void storeQuizItemAt(const QModelIndex &index);
 
+    QuizItem quizItemAt(const QModelIndex &index) const;
     const QVector<QString> &categoryList() const;
     const QVector<QString> &difficultyList() const;
 
@@ -30,7 +29,6 @@ private:
     enum class ColumnNames { Category, Difficulty, Question };
 
     QVector<QuizItem> m_data;
-
     const QVector<QString> m_categoryList { "Wissenschaft", "Kultur", "Religion", "Erdkunde", "Zeitgeschehen", "Allgemein" };
     const QVector<QString> m_difficultyList { "Easy", "Medium", "Hard", "Extreme" };
 };

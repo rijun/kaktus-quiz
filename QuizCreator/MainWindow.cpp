@@ -15,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     ui->questionView->setModel(m_model);
-    ui->questionView->resizeColumnsToContents();
+    // ui->questionView->resizeColumnsToContents();
     ui->questionView->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->questionView->setSelectionMode(QAbstractItemView::SingleSelection);
 
@@ -60,7 +60,7 @@ void MainWindow::on_editButton_clicked()
 void MainWindow::showQuizEditor(const QModelIndex &index)
 {
     m_currentIndex = index;
-    m_itemEditor->setQuizItem(m_model->quizItemAt(index));
+    m_itemEditor->setQuizItem(m_model->quizItemAt(m_currentIndex));
     m_itemEditor->open();
 }
 

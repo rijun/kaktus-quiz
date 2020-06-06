@@ -65,7 +65,6 @@ bool QuizModel::setData(const QModelIndex &index, const QVariant &value, int rol
 
         return true;
     }
-
     return false;
 }
 
