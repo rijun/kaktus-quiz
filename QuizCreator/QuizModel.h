@@ -21,6 +21,8 @@ public:
     bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
     Qt::ItemFlags flags(const QModelIndex &index) const override;
 
+    void addRow();
+    bool removeRow(int row, const QModelIndex &parent = QModelIndex());
     QuizItem quizItemAt(const QModelIndex &index) const;
     const QVector<QString> &categoryList() const;
     const QVector<QString> &difficultyList() const;

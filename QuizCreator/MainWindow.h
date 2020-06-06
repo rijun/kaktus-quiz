@@ -30,6 +30,7 @@ private slots:
     void on_generateButton_clicked();
 
     void on_addButton_clicked();
+    void on_delButton_clicked();
     void on_editButton_clicked();
 
     void showQuizEditor(const QModelIndex &index);

@@ -49,7 +49,12 @@ void MainWindow::on_generateButton_clicked()
 
 void MainWindow::on_addButton_clicked()
 {
-    //insertRow();
+//    m_model->addRow();
+}
+
+void MainWindow::on_delButton_clicked()
+{
+    m_model->removeRow(ui->questionView->currentIndex().row());
 }
 
 void MainWindow::on_editButton_clicked()

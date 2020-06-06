@@ -74,6 +74,22 @@ Qt::ItemFlags QuizModel::flags(const QModelIndex &index) const
     return Qt::ItemIsSelectable | Qt::ItemIsEnabled;
 }
 
+void QuizModel::addRow()
+{
+    QuizItem item;
+    m_data.append(item);
+}
+
+bool QuizModel::removeRow(int row, const QModelIndex &parent)
+{
+    if (m_data.isEmpty()) { return false; };
+
+    beginRemoveRows(parent, row, row);
+    m_data.remove(row);
+    endRemoveRows();
+    return true;
+}
+
 QuizItem QuizModel::quizItemAt(const QModelIndex &index) const
 {
     return m_data.at(index.row());
