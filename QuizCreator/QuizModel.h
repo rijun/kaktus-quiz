@@ -19,10 +19,10 @@ public:
     QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
+    bool insertRow(int row, const QModelIndex &parent = QModelIndex());
+    bool removeRow(int row, const QModelIndex &parent = QModelIndex());
     Qt::ItemFlags flags(const QModelIndex &index) const override;
 
-    void addRow();
-    bool removeRow(int row, const QModelIndex &parent = QModelIndex());
     QuizItem quizItemAt(const QModelIndex &index) const;
     const QVector<QString> &categoryList() const;
     const QVector<QString> &difficultyList() const;

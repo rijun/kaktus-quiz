@@ -49,7 +49,8 @@ void MainWindow::on_generateButton_clicked()
 
 void MainWindow::on_addButton_clicked()
 {
-//    m_model->addRow();
+    m_model->insertRow(m_model->rowCount());
+    showQuizEditor(m_model->index(m_model->rowCount() - 1, 0));
 }
 
 void MainWindow::on_delButton_clicked()

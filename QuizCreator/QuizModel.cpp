@@ -68,16 +68,12 @@ bool QuizModel::setData(const QModelIndex &index, const QVariant &value, int rol
     return false;
 }
 
-Qt::ItemFlags QuizModel::flags(const QModelIndex &index) const
+bool QuizModel::insertRow(int row, const QModelIndex &parent)
 {
-    (void) index;   // Suppress warning
-    return Qt::ItemIsSelectable | Qt::ItemIsEnabled;
-}
-
-void QuizModel::addRow()
-{
-    QuizItem item;
-    m_data.append(item);
+    beginInsertRows(parent, row, row);
+    m_data.append(QuizItem());
+    endInsertRows();
+    return true;
 }
 
 bool QuizModel::removeRow(int row, const QModelIndex &parent)
@@ -88,6 +84,12 @@ bool QuizModel::removeRow(int row, const QModelIndex &parent)
     m_data.remove(row);
     endRemoveRows();
     return true;
+}
+
+Qt::ItemFlags QuizModel::flags(const QModelIndex &index) const
+{
+    (void) index;   // Suppress warning
+    return Qt::ItemIsSelectable | Qt::ItemIsEnabled;
 }
 
 QuizItem QuizModel::quizItemAt(const QModelIndex &index) const
