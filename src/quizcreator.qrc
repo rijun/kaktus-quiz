@@ -4,5 +4,7 @@
         <file>icons/minus.svg</file>
         <file>icons/plus.svg</file>
         <file>templates/quiz_item.html</file>
+        <file>icons/folder.svg</file>
+        <file>icons/save.svg</file>
     </qresource>
 </RCC>
