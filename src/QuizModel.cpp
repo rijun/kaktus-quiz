@@ -62,6 +62,7 @@ bool QuizModel::setData(const QModelIndex &index, const QVariant &value, int rol
         m_data.replace(index.row(), value.value<QuizItem>());
 
         emit dataChanged(index, index, {Qt::DisplayRole});
+        emit quizDataChanged(m_data.at(index.row()).category, m_data.at(index.row()).difficulty);
 
         return true;
     }
@@ -80,9 +81,15 @@ bool QuizModel::removeRow(int row, const QModelIndex &parent)
 {
     if (m_data.isEmpty()) { return false; };
 
+    int cat = m_data.at(row).category;
+    int diff = m_data.at(row).difficulty;
+
     beginRemoveRows(parent, row, row);
     m_data.remove(row);
     endRemoveRows();
+
+    emit quizDataChanged(cat, diff);
+
     return true;
 }
 
@@ -111,4 +118,34 @@ const QVector<QString> &QuizModel::categoryList() const
 const QVector<QString> &QuizModel::difficultyList() const
 {
     return m_difficultyList;
+}
+
+int QuizModel::numberOfCategories()
+{
+    return m_categoryList.size();
+}
+
+int QuizModel::numberOfDifficulties()
+{
+    return m_difficultyList.size();
+}
+
+int QuizModel::quizItemCount(int category, int difficulty)
+{
+    int counter = 0;
+    for (const QuizItem &item : m_data) {
+        if (item.category == category && item.difficulty == difficulty) {
+            ++counter;
+        }
+    }
+    return counter;
+}
+
+int QuizModel::maxQuestionsPerCategory()
+{
+    int questions = 0;
+    for (int max : m_maxQuestionsPerDifficulty) {
+        questions += max;
+    }
+    return questions;
 }

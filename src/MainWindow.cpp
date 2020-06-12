@@ -137,7 +137,12 @@ void MainWindow::editQuizModel(int result)
 
 void MainWindow::updateQuizState(int category, int difficulty)
 {
-
+    int amountOfQuestions = 0;
+    for (int i = 0; i < m_model->numberOfDifficulties(); ++i) {
+        amountOfQuestions += m_model->quizItemCount(category, i);
+    }
+    qDebug() << amountOfQuestions / m_model->maxQuestionsPerCategory() * 100;
+    m_progressBarList.at(category)->setValue(amountOfQuestions * 100 / m_model->maxQuestionsPerCategory());
 }
 
 void MainWindow::renameCategories()
