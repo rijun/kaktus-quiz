@@ -38,7 +38,7 @@
        <item row="3" column="1">
         <widget class="QProgressBar" name="cat4ProgressBar">
          <property name="value">
-          <number>24</number>
+          <number>0</number>
          </property>
         </widget>
        </item>
@@ -66,7 +66,7 @@
        <item row="0" column="1">
         <widget class="QProgressBar" name="cat1ProgressBar">
          <property name="value">
-          <number>24</number>
+          <number>0</number>
          </property>
         </widget>
        </item>
@@ -76,21 +76,21 @@
        <item row="2" column="1">
         <widget class="QProgressBar" name="cat3ProgressBar">
          <property name="value">
-          <number>24</number>
+          <number>0</number>
          </property>
         </widget>
        </item>
        <item row="4" column="1">
         <widget class="QProgressBar" name="cat5ProgressBar">
          <property name="value">
-          <number>24</number>
+          <number>0</number>
          </property>
         </widget>
        </item>
        <item row="5" column="1">
         <widget class="QProgressBar" name="cat6ProgressBar">
          <property name="value">
-          <number>24</number>
+          <number>0</number>
          </property>
         </widget>
        </item>
@@ -104,7 +104,7 @@
        <item row="1" column="1">
         <widget class="QProgressBar" name="cat2ProgressBar">
          <property name="value">
-          <number>24</number>
+          <number>0</number>
          </property>
         </widget>
        </item>

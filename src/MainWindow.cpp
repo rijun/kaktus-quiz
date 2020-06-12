@@ -25,10 +25,19 @@ MainWindow::MainWindow(QWidget *parent)
     ui->questionView->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->questionView->setSelectionMode(QAbstractItemView::SingleSelection);
 
+    // Build progress bar list
+    m_progressBarList.resize(m_model->numberOfCategories());
+    for (QObject *obj : ui->progressGroupBox->children()) {
+        if(QProgressBar *pb = qobject_cast<QProgressBar*>(obj)) {
+            QRegularExpressionMatch match = QRegularExpression("\\d").match(obj->objectName());
+            m_progressBarList.replace(match.captured(0).toInt() - 1, pb);
+        }
+    }
+
+    // Connect signals and slots
     connect(ui->questionView, &QAbstractItemView::doubleClicked, this, &MainWindow::showQuizEditor);
     connect(m_itemEditor, &QDialog::finished, this, &MainWindow::editQuizModel);
-
-
+    connect(m_model, &QuizModel::quizDataChanged, this, &MainWindow::updateQuizState);
 }
 
 MainWindow::~MainWindow()
@@ -124,6 +133,11 @@ void MainWindow::editQuizModel(int result)
     case QDialog::Rejected:
         break;
     }
+}
+
+void MainWindow::updateQuizState(int category, int difficulty)
+{
+
 }
 
 void MainWindow::renameCategories()

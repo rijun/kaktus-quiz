@@ -11,6 +11,7 @@ namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
 class QModelIndex;
+class QProgressBar;
 class QuizModel;
 class ItemEditor;
 
@@ -35,12 +36,14 @@ private slots:
 
     void showQuizEditor(const QModelIndex &index);
     void editQuizModel(int result);
+    void updateQuizState(int category, int difficulty);
 
 private:
     Ui::MainWindow *ui;
     QuizModel *m_model;
     ItemEditor *m_itemEditor;
     QModelIndex m_currentIndex;
+    QVector<QProgressBar*> m_progressBarList;
 
     void renameCategories();
 };
