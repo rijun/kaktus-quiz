@@ -7,6 +7,7 @@
 
 #include <QMessageBox>
 #include <QFile>
+#include <QFileDialog>
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QJsonObject>
@@ -51,6 +52,16 @@ void MainWindow::on_actionAbout_triggered()
 
 void MainWindow::on_generateButton_clicked()
 {
+//    QFileDialog dialog(this, tr("Select folder to store quiz"), "~");
+//    dialog.setFileMode(QFileDialog::Directory);
+//    dialog.setOption(QFileDialog::ShowDirsOnly);
+//    QString fileName;
+//    if (dialog.exec()) {
+//        fileName = dialog.selectedFiles()[0];
+//    } else {
+//        return;
+//    }
+
     QJsonArray quizDataList;
 
     for (int i = 0; i < m_model->rowCount(); ++i) {
@@ -72,7 +83,7 @@ void MainWindow::on_generateButton_clicked()
     QFile templateFile(":/templates/quiz_item.html");
     if (!templateFile.open(QIODevice::ReadOnly | QIODevice::Text)) { return; }
 
-    if (FileGenerator::generateQuiz(quizData.toJson(QJsonDocument::Compact).toStdString(), templateFile.readAll().toStdString())) {
+    if (FileGenerator::generateQuiz(quizData.toJson(QJsonDocument::Compact).toStdString(), templateFile.readAll().toStdString(), ".")) {
         qDebug() << "Success!";
     } else {
         qDebug() << "Fail!";

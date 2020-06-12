@@ -7,7 +7,7 @@ class FileGenerator
 {
 public:
     FileGenerator();
-    static bool generateQuiz(const std::string &quizData, const std::string &templateFile);
+    static bool generateQuiz(const std::string &quizData, const std::string &templateFile, const std::string &targetFolder);
 };
 
 #endif // FILEGENERATOR_H

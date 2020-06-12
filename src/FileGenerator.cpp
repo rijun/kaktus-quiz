@@ -7,14 +7,14 @@ FileGenerator::FileGenerator()
 
 }
 
-bool FileGenerator::generateQuiz(const std::string &quizData, const std::string &templateFile)
+bool FileGenerator::generateQuiz(const std::string &quizData, const std::string &templateFile, const std::string &targetFolder)
 {
     nlohmann::json j = nlohmann::json::parse(quizData);
     inja::Environment env;
 
 //    try {
       inja::Template temp = env.parse(templateFile);
-      env.write(temp, j[0], "./test.html");
+      env.write(temp, j[0], targetFolder + "/test.html");
 
 
 //        std::string result = env.render("{{ question }}", j);
