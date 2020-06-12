@@ -149,3 +149,8 @@ int QuizModel::maxQuestionsPerCategory()
     }
     return questions;
 }
+
+int QuizModel::maxQuestionsPerDifficulty(int difficulty)
+{
+    return m_maxQuestionsPerDifficulty.at(difficulty);
+}

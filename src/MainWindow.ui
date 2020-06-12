@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>813</width>
-    <height>605</height>
+    <width>816</width>
+    <height>582</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,92 +21,96 @@
        <string>Overview</string>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
-       <item row="3" column="0">
-        <widget class="QLabel" name="cat4Label">
-         <property name="text">
-          <string>Category 4</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0">
-        <widget class="QLabel" name="cat1Label">
-         <property name="text">
-          <string>Category 1</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="1">
-        <widget class="QProgressBar" name="cat4ProgressBar">
-         <property name="value">
-          <number>0</number>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="cat3Label">
-         <property name="text">
-          <string>Category 3</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="0">
-        <widget class="QLabel" name="cat5Label">
-         <property name="text">
-          <string>Category 5</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="cat2Label">
-         <property name="text">
-          <string>Category 2</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QProgressBar" name="cat1ProgressBar">
-         <property name="value">
-          <number>0</number>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="2" rowspan="6">
-        <widget class="QColumnView" name="columnView_2"/>
-       </item>
-       <item row="2" column="1">
-        <widget class="QProgressBar" name="cat3ProgressBar">
-         <property name="value">
-          <number>0</number>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="1">
-        <widget class="QProgressBar" name="cat5ProgressBar">
-         <property name="value">
-          <number>0</number>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="1">
-        <widget class="QProgressBar" name="cat6ProgressBar">
-         <property name="value">
-          <number>0</number>
-         </property>
-        </widget>
+       <item row="5" column="2" colspan="3">
+        <layout class="QGridLayout" name="progressGroup"/>
        </item>
        <item row="5" column="0">
-        <widget class="QLabel" name="cat6Label">
-         <property name="text">
-          <string>Category 6</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QProgressBar" name="cat2ProgressBar">
-         <property name="value">
-          <number>0</number>
-         </property>
-        </widget>
+        <layout class="QFormLayout" name="progressForm">
+         <item row="5" column="1">
+          <widget class="QProgressBar" name="cat6ProgressBar">
+           <property name="value">
+            <number>0</number>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="cat6Label">
+           <property name="text">
+            <string>Category 6</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="cat1Label">
+           <property name="text">
+            <string>Category 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="cat2Label">
+           <property name="text">
+            <string>Category 2</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="cat3Label">
+           <property name="text">
+            <string>Category 3</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="cat4Label">
+           <property name="text">
+            <string>Category 4</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="cat5Label">
+           <property name="text">
+            <string>Category 5</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QProgressBar" name="cat1ProgressBar">
+           <property name="value">
+            <number>0</number>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QProgressBar" name="cat2ProgressBar">
+           <property name="value">
+            <number>0</number>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QProgressBar" name="cat3ProgressBar">
+           <property name="value">
+            <number>0</number>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QProgressBar" name="cat4ProgressBar">
+           <property name="value">
+            <number>0</number>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QProgressBar" name="cat5ProgressBar">
+           <property name="value">
+            <number>0</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </widget>
@@ -124,16 +128,6 @@
        <string>Questions</string>
       </property>
       <layout class="QGridLayout" name="gridLayout_3">
-       <item row="3" column="0">
-        <widget class="QTableView" name="questionView">
-         <property name="sortingEnabled">
-          <bool>true</bool>
-         </property>
-         <attribute name="horizontalHeaderStretchLastSection">
-          <bool>true</bool>
-         </attribute>
-        </widget>
-       </item>
        <item row="3" column="1">
         <layout class="QVBoxLayout" name="toolButtonGroup">
          <item>
@@ -184,6 +178,16 @@
          </item>
         </layout>
        </item>
+       <item row="3" column="0">
+        <widget class="QTableView" name="questionView">
+         <property name="sortingEnabled">
+          <bool>true</bool>
+         </property>
+         <attribute name="horizontalHeaderStretchLastSection">
+          <bool>true</bool>
+         </attribute>
+        </widget>
+       </item>
       </layout>
      </widget>
     </item>
@@ -214,7 +218,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>813</width>
+     <width>816</width>
      <height>23</height>
     </rect>
    </property>

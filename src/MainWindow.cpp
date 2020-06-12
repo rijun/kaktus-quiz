@@ -27,10 +27,21 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Build progress bar list
     m_progressBarList.resize(m_model->numberOfCategories());
-    for (QObject *obj : ui->progressGroupBox->children()) {
-        if(QProgressBar *pb = qobject_cast<QProgressBar*>(obj)) {
-            QRegularExpressionMatch match = QRegularExpression("\\d").match(obj->objectName());
+    for (int i = 0; i < ui->progressForm->rowCount(); ++i) {
+        if(QProgressBar *pb = qobject_cast<QProgressBar*>(ui->progressForm->itemAt(i, QFormLayout::FieldRole)->widget())) {
+            QRegularExpressionMatch match = QRegularExpression("\\d").match(pb->objectName());
             m_progressBarList.replace(match.captured(0).toInt() - 1, pb);
+        }
+    }
+
+    // Build progress label list
+    for (int i = 0; i < m_model->numberOfCategories(); ++i) {
+        m_labelList.append(QVector<QLabel*>());
+        for (int j = 0; j < m_model->numberOfDifficulties(); ++j) {
+            QLabel *lbl = new QLabel();
+            lbl->setText(labelPresets.at(j).arg(m_model->quizItemCount(i, j)).arg(m_model->maxQuestionsPerDifficulty(j)));
+            m_labelList[i].append(lbl);
+            ui->progressGroup->addWidget(lbl, i, j);
         }
     }
 
@@ -141,8 +152,9 @@ void MainWindow::updateQuizState(int category, int difficulty)
     for (int i = 0; i < m_model->numberOfDifficulties(); ++i) {
         amountOfQuestions += m_model->quizItemCount(category, i);
     }
-    qDebug() << amountOfQuestions / m_model->maxQuestionsPerCategory() * 100;
     m_progressBarList.at(category)->setValue(amountOfQuestions * 100 / m_model->maxQuestionsPerCategory());
+
+    m_labelList[category][difficulty]->setText(labelPresets.at(difficulty).arg(m_model->quizItemCount(category, difficulty)).arg(m_model->maxQuestionsPerDifficulty(category)));
 }
 
 void MainWindow::renameCategories()

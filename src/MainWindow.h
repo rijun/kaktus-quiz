@@ -12,6 +12,7 @@ QT_END_NAMESPACE
 
 class QModelIndex;
 class QProgressBar;
+class QLabel;
 class QuizModel;
 class ItemEditor;
 
@@ -25,11 +26,8 @@ public:
 
 private slots:
     void on_actionAbout_triggered();
-
     void on_actionAboutQt_triggered();
-
     void on_generateButton_clicked();
-
     void on_addButton_clicked();
     void on_delButton_clicked();
     void on_editButton_clicked();
@@ -44,6 +42,9 @@ private:
     ItemEditor *m_itemEditor;
     QModelIndex m_currentIndex;
     QVector<QProgressBar*> m_progressBarList;
+    QVector<QVector<QLabel*>> m_labelList;
+
+    const QVector<QString> labelPresets { "%1/%2", "%1/%2", "%1/%2", "%1/%2" };
 
     void renameCategories();
 };

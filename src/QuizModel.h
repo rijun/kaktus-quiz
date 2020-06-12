@@ -33,6 +33,7 @@ public:
     int numberOfDifficulties();
     int quizItemCount(int category, int difficulty);
     int maxQuestionsPerCategory();
+    int maxQuestionsPerDifficulty(int difficulty);
 
 signals:
     void quizDataChanged(int category, int difficulty);
