@@ -3,5 +3,6 @@
         <file>icons/edit.svg</file>
         <file>icons/minus.svg</file>
         <file>icons/plus.svg</file>
+        <file>templates/quiz_item.html</file>
     </qresource>
 </RCC>

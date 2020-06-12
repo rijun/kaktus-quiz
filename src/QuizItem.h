@@ -10,8 +10,9 @@ struct QuizItem
     QString question  = "";
     QString answer = "";
     QVector<QString> options { "", "", "" };
-    unsigned int category = 0;
-    unsigned int difficulty = 0;
+    int category = 0;
+    int difficulty = 0;
+    bool complete = false;
 };
 
 Q_DECLARE_METATYPE(QuizItem)

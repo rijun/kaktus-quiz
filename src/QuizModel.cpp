@@ -92,6 +92,12 @@ Qt::ItemFlags QuizModel::flags(const QModelIndex &index) const
     return Qt::ItemIsSelectable | Qt::ItemIsEnabled;
 }
 
+QuizItem QuizModel::quizItemAt(const int &row) const
+{
+    if (row >= m_data.size()) { return QuizItem(); }
+    return m_data.at(row);
+}
+
 QuizItem QuizModel::quizItemAt(const QModelIndex &index) const
 {
     return m_data.at(index.row());

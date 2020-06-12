@@ -3,9 +3,14 @@
 #include "QuizModel.h"
 #include "ItemEditor.h"
 #include "LicenseTexts.h"
+#include "FileGenerator.h"
 
 #include <QMessageBox>
 #include <QFile>
+#include <QJsonDocument>
+#include <QJsonArray>
+#include <QJsonObject>
+#include <QJsonValue>
 #include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -21,6 +26,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->questionView, &QAbstractItemView::doubleClicked, this, &MainWindow::showQuizEditor);
     connect(m_itemEditor, &QDialog::finished, this, &MainWindow::editQuizModel);
+
+
 }
 
 MainWindow::~MainWindow()
@@ -44,7 +51,34 @@ void MainWindow::on_actionAbout_triggered()
 
 void MainWindow::on_generateButton_clicked()
 {
-    qDebug() << "Generation";
+    QJsonArray quizDataList;
+
+    for (int i = 0; i < m_model->rowCount(); ++i) {
+        QuizItem quizItem = m_model->quizItemAt(i);
+
+        // if (!quizItem.complete) { continue; }
+
+        QJsonObject quizObj;
+        quizObj.insert("question", quizItem.question);
+        quizObj.insert("answer", quizItem.answer);
+        quizObj.insert("options", QJsonArray::fromStringList(quizItem.options.toList()));
+        quizObj.insert("category", quizItem.category);
+        quizObj.insert("difficulty", quizItem.difficulty);
+        quizDataList.append(quizObj);
+    }
+
+    QJsonDocument quizData = QJsonDocument(quizDataList);
+
+    QFile templateFile(":/templates/quiz_item.html");
+    if (!templateFile.open(QIODevice::ReadOnly | QIODevice::Text)) { return; }
+
+    if (FileGenerator::generateQuiz(quizData.toJson(QJsonDocument::Compact).toStdString(), templateFile.readAll().toStdString())) {
+        qDebug() << "Success!";
+    } else {
+        qDebug() << "Fail!";
+    }
+
+    templateFile.close();
 }
 
 void MainWindow::on_addButton_clicked()
@@ -78,5 +112,14 @@ void MainWindow::editQuizModel(int result)
         break;
     case QDialog::Rejected:
         break;
+    }
+}
+
+void MainWindow::renameCategories()
+{
+    // QObjectList labelList =
+
+    for (const QObject *obj : ui->progressGroupBox->children()) {
+        qDebug() << obj->objectName();
     }
 }

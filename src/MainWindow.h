@@ -41,5 +41,7 @@ private:
     QuizModel *m_model;
     ItemEditor *m_itemEditor;
     QModelIndex m_currentIndex;
+
+    void renameCategories();
 };
 #endif // MAINWINDOW_H

@@ -23,6 +23,7 @@ public:
     bool removeRow(int row, const QModelIndex &parent = QModelIndex());
     Qt::ItemFlags flags(const QModelIndex &index) const override;
 
+    QuizItem quizItemAt(const int &row) const;
     QuizItem quizItemAt(const QModelIndex &index) const;
     const QVector<QString> &categoryList() const;
     const QVector<QString> &difficultyList() const;

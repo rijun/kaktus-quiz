@@ -30,6 +30,12 @@ void ItemEditor::setQuizItem(const QuizItem &item)
     ui->option3LineEdit->setText(m_quizItem.options.at(2));
     ui->categoryComboBox->setCurrentIndex(m_quizItem.category);
     ui->difficultyComboBox->setCurrentIndex(m_quizItem.difficulty);
+
+    if (m_quizItem.question != "" && m_quizItem.answer != "" && m_quizItem.options.at(0) != "" && m_quizItem.options.at(1) != "" && m_quizItem.options.at(2) != "") {
+        m_quizItem.complete = true;
+    } else {
+        m_quizItem.complete = false;
+    }
 }
 
 QuizItem ItemEditor::quizItem()
