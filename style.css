@@ -1,5 +1,5 @@
 .navbar-image {
-    width: 60px;
+    width: 80px;
 }
 
 .kaktus-image {
@@ -8,7 +8,7 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 .header-text{
@@ -17,4 +17,13 @@
 
 .navbar-nav{
     text-align: right;
+}
+.navbar-brand{
+    font-size: 50px;
+    margin-bottom: 0px;
+}
+
+.bttn-join{
+    width: 30%;
+    text-align: center;
 }
