@@ -47,9 +47,13 @@ function createQuizOverview() {
         let tbRow = tBody.insertRow();
         window.categoryList.forEach(catStr => {
             let td = document.createElement('td');
+            let buttonStart = document.createElement('button');
+            buttonStart.className = "btn btn-primary";
             td.scope = 'col';
+            //catStr = categoryList and diffStr = difficultyList
             let text = document.createTextNode(`${catStr} - ${diffStr}`);
-            td.appendChild(text);
+            td.appendChild(buttonStart);
+            buttonStart.appendChild(text);
             tbRow.appendChild(td);
         });
     });
