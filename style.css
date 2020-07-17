@@ -50,4 +50,14 @@ th{
     font-weight: bold;
     font-size: 20px;
     background-color: #348936;
+    width: 225px;
+}
+
+td{
+    width: 225px;
+}
+
+.quest{
+    width: 174.75px;
+    height: 63px;
 }

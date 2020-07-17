@@ -48,7 +48,7 @@ function createQuizOverview() {
         window.categoryList.forEach(catStr => {
             let td = document.createElement('td');
             let buttonStart = document.createElement('button');
-            buttonStart.className = "btn btn-primary";
+            buttonStart.className = "btn btn-info quest";
             td.scope = 'col';
             //catStr = categoryList and diffStr = difficultyList
             let text = document.createTextNode(`${catStr} - ${diffStr}`);
