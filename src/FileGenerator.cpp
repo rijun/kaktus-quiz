@@ -1,4 +1,4 @@
-﻿#include "FileGenerator.h"
+#include "FileGenerator.h"
 #include "lib/inja.hpp"
 #include "lib/json.hpp"
 

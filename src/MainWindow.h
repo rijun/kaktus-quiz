@@ -1,9 +1,8 @@
-﻿#ifndef MAINWINDOW_H
+#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QMainWindow>
 #include <QModelIndex>
-
 #include "QuizItem.h"
 
 QT_BEGIN_NAMESPACE

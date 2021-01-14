@@ -1,6 +1,7 @@
-﻿#ifndef QUIZMODEL_H
+#ifndef QUIZMODEL_H
 #define QUIZMODEL_H
 
+#include <QObject>
 #include <QAbstractTableModel>
 #include <QModelIndex>
 #include <QVariant>
@@ -12,8 +13,8 @@ constexpr int COLS = 3;
 class QuizModel : public QAbstractTableModel
 {
     Q_OBJECT
+
 public:
-    /* Table model methods */
     QuizModel(QObject *parent = nullptr);
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;
@@ -24,7 +25,6 @@ public:
     bool removeRow(int row, const QModelIndex &parent = QModelIndex());
     Qt::ItemFlags flags(const QModelIndex &index) const override;
 
-    /* Custom methods */
     QuizItem quizItemAt(const int &row) const;
     QuizItem quizItemAt(const QModelIndex &index) const;
     const QVector<QString> &categoryList() const;

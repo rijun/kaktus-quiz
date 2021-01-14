@@ -1,4 +1,4 @@
-﻿#ifndef QUIZITEM_H
+#ifndef QUIZITEM_H
 #define QUIZITEM_H
 
 #include <QString>

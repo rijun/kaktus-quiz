@@ -1,5 +1,5 @@
-﻿#ifndef ITEM_EDITOR_H
-#define ITEM_EDITOR_H
+#ifndef ITEMEDITOR_H
+#define ITEMEDITOR_H
 
 #include <QDialog>
 
@@ -27,4 +27,4 @@ private:
     const QVector<QString> *m_difficultyListPtr;
 };
 
-#endif // ITEM_EDITOR_H
+#endif // ITEMEDITOR_H

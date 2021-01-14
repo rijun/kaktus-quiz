@@ -1,4 +1,4 @@
-﻿#ifndef FILEGENERATOR_H
+#ifndef FILEGENERATOR_H
 #define FILEGENERATOR_H
 
 #include <string>

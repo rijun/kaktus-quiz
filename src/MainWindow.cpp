@@ -1,5 +1,6 @@
-﻿#include "MainWindow.h"
-#include "ui_MainWindow.h"
+#include "MainWindow.h"
+#include "./ui_MainWindow.h"
+
 #include "QuizModel.h"
 #include "ItemEditor.h"
 #include "LicenseTexts.h"
@@ -13,6 +14,7 @@
 #include <QJsonObject>
 #include <QJsonValue>
 #include <QDebug>
+#include <QDesktopServices>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow), m_model(new QuizModel),
