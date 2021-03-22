@@ -1,18 +1,22 @@
 <template>
   <div>
-    <Index msg="Welcome to Your Vue.js App" />
+    <AppHeader />
+    <Button text="Generate Team"/>
   </div>
 </template>
 
 <script>
-import Index from "./components/Index";
+import AppHeader from "./components/AppHeader";
+import Button from "./components/Buttons";
 
 export default {
   name: "App",
   components: {
-    Index,
+    AppHeader,
+    Button,
   },
 };
+
 </script>
 
 <style>
