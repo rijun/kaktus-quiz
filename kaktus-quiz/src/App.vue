@@ -1,19 +1,21 @@
 <template>
   <div>
     <AppHeader />
-    <Button text="Generate Team"/>
+    <AddTeam />
   </div>
 </template>
 
 <script>
 import AppHeader from "./components/AppHeader";
 import Button from "./components/Buttons";
+import AddTeam from "./components/AddTeam";
 
 export default {
   name: "App",
   components: {
     AppHeader,
     Button,
+    AddTeam,
   },
 };
 
@@ -26,6 +28,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

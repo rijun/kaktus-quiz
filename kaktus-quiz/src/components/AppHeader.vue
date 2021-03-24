@@ -1,6 +1,5 @@
 <template>
   <div>
-    <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <img
           class="navbar-image"
@@ -22,21 +21,38 @@
             <span class="navbar-toggler-icon"></span>
           </button>
         </div>
+        <Button text="Team Erstellen" class="generateTeam" data-toggle="modal" data-target="#myModal"/>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ml-auto">
             <div id="Butto"></div>
           </div>
         </div>
       </nav>
-    </header>
   </div>
 </template>
 
 <script>
+import Button from './Buttons';
+import AddTeam from './AddTeam';
 export default {
   name: "AppHeader",
+    props: {
+        title: String,
+        showAddTask: Boolean,
+    },
+    components: {
+        Button,
+        AddTeam,
+    }
 };
 </script>
 
 <style scoped>
+.generateTeam {
+  font-size: 20px;
+  height: 50px;
+  width: 200px;
+  position: absolute; 
+  right: 50px;
+}
 </style>
