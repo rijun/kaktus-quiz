@@ -43,7 +43,11 @@
             </button>
           </div>
           <div class="modal-body">
-            
+            <p class="inputHeader">Teamnamen eingeben:</p>
+            <input class="form-control" type="text" id="teamName">
+            <br>
+            <p class="inputHeader">Teamfarbe auswählen</p>
+            <input class="form-control colorPicker" type="color" id="teamColor">
           </div>
           <div class="modal-footer">
             <button
@@ -53,7 +57,7 @@
             >
               Abbruch
             </button>
-            <button type="button" class="btn btn-primary">
+            <button type="button" class="btn btn-success" data-dismiss="modal">
               Team erstellen
             </button>
           </div>
@@ -98,5 +102,17 @@ export default {
 </script>
 
 <style scoped>
+.inputHeader {
+  font-size: 18px;
+  margin-bottom: 3px;
+  margin-left: 3px;
+  text-decoration: underline;
+  text-align: left;
+}
+
+.colorPicker {
+  padding: 0 0 0 0;
+  
+}
 
 </style>
