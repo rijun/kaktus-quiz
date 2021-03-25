@@ -1,0 +1,15 @@
+{
+    "teams": [
+        {
+            "id": "1",
+            "name": "BlinMachine",
+            "color": "#243ff6"
+        },
+        {
+            "id": "2",
+            "name": "Team Lesnitsky",
+            "color": "f6f6f6"
+        }
+
+    ]
+}

@@ -5,10 +5,11 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "backend": "json-server --watch db.json --port 5000"
+    "backend": "json-server --watch db.json --port 5001"
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "json-server": "^0.16.3",
     "vue": "^3.0.0"
   },
   "devDependencies": {
