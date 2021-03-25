@@ -44,10 +44,10 @@
           </div>
           <div class="modal-body">
             <p class="inputHeader">Teamnamen eingeben:</p>
-            <input class="form-control" type="text" id="teamName">
+            <input class="form-control" type="text" id="teamName" name="name">
             <br>
             <p class="inputHeader">Teamfarbe auswählen</p>
-            <input class="form-control colorPicker" type="color" id="teamColor">
+            <input class="form-control colorPicker" type="color" id="teamColor" name="color">
           </div>
           <div class="modal-footer">
             <button
@@ -57,7 +57,7 @@
             >
               Abbruch
             </button>
-            <button type="button" class="btn btn-success" data-dismiss="modal">
+            <button type="button" id="Send" onclick="onSubmit()" class="btn btn-success" data-dismiss="modal">
               Team erstellen
             </button>
           </div>
@@ -72,30 +72,28 @@ export default {
   name: "AddTeam",
   data() {
     return {
-      text: "",
-      day: "",
-      reminder: false,
+      name: "",
+      color: "",
     };
   },
   methods: {
     onSubmit(e) {
       e.preventDefault();
 
-      if (!this.text) {
-        alert("Keine Teilnehmer ausgewählt");
+      if (!this.name) {
+        alert("Keinen Namen vergeben");
         return;
       }
 
-      const newTask = {
-        text: this.text,
-        day: this.day,
-        reminder: this.reminder,
+      const newTeam = {
+        name: this.text,
+        color: this.color,
       };
 
-      this.$emit("add-team", newTask);
-      console.log(newTask);
+      this.$emit("add-team", newTeam);
+      console.log(newTeam);
 
-      (this.text = ""), (this.day = ""), (this.reminder = false);
+      (this.name = ""), (this.color = "");
     },
   },
 };

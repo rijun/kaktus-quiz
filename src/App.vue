@@ -26,18 +26,29 @@ export default {
     };
   },
   methods: {
-   async fetchTeams() {
-     const res = await fetch('http://localhost:5001/teams')
+    async addTeam(team) {
+      const res = await fetch("http://localhost:5001/teams", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(team),
+      })
+      const data = await res.json()
 
-     const data = await res.json()
+      this.teams = [...this.teams, data]
+    },
+    async fetchTeams() {
+      const res = await fetch("http://localhost:5001/teams");
 
-     return data
-    }
+      const data = await res.json();
+
+      return data;
+    },
   },
   async created() {
-    this.teams = await this.fetchTeams()
+    this.teams = await this.fetchTeams();
   },
-
 };
 </script>
 
