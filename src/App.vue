@@ -5,6 +5,7 @@
     <AddTeam @add-team="addTeam" />
 
     <Teams :teams="teams" />
+    <Button text="Quiz starten"/>
   </div>
 </template>
 
@@ -61,5 +62,12 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  
+}
+
+body{
+    min-height: 100%;
+    background-color: slategray;
+    background-image: url("./assets/bamboo-forest.jpeg");
 }
 </style>

@@ -3,22 +3,19 @@
     {
       "id": "1",
       "name": "BlinMachine",
-      "color": "#243ff6"
+      "color": "#588522",
+      "points": "0"
     },
     {
       "id": "2",
       "name": "Team Lesnitsky",
-      "color": "f6f6f6"
+      "color": "#f6f6f6",
+      "points": "0"
     },
     {
-      "name": "dddd",
-      "color": "#000000",
-      "id": "8_h8R3w"
-    },
-    {
-      "name": "awdawdawd",
-      "color": "#000000",
-      "id": "ozNkycB"
+      "name": "TestTeam",
+      "color": "#ff00ff",
+      "id": "2mYB1Az"
     }
   ]
 }
