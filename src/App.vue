@@ -1,7 +1,9 @@
 <template>
   <div>
     <AppHeader />
-    <AddTeam />
+
+    <AddTeam @add-team="addTeam" />
+
     <Teams :teams="teams" />
   </div>
 </template>
@@ -33,10 +35,10 @@ export default {
           "Content-type": "application/json",
         },
         body: JSON.stringify(team),
-      })
-      const data = await res.json()
+      });
+      const data = await res.json();
 
-      this.teams = [...this.teams, data]
+      this.teams = [...this.teams, data];
     },
     async fetchTeams() {
       const res = await fetch("http://localhost:5001/teams");

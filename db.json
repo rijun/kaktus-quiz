@@ -1,15 +1,24 @@
 {
-    "teams": [
-        {
-            "id": "1",
-            "name": "BlinMachine",
-            "color": "#243ff6"
-        },
-        {
-            "id": "2",
-            "name": "Team Lesnitsky",
-            "color": "f6f6f6"
-        }
-
-    ]
+  "teams": [
+    {
+      "id": "1",
+      "name": "BlinMachine",
+      "color": "#243ff6"
+    },
+    {
+      "id": "2",
+      "name": "Team Lesnitsky",
+      "color": "f6f6f6"
+    },
+    {
+      "name": "dddd",
+      "color": "#000000",
+      "id": "8_h8R3w"
+    },
+    {
+      "name": "awdawdawd",
+      "color": "#000000",
+      "id": "ozNkycB"
+    }
+  ]
 }

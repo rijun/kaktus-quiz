@@ -44,10 +44,16 @@
           </div>
           <div class="modal-body">
             <p class="inputHeader">Teamnamen eingeben:</p>
-            <input class="form-control" type="text" id="teamName" name="name">
-            <br>
+            <input class="form-control" type="text" id="teamName" v-model="name" name="name" />
+            <br />
             <p class="inputHeader">Teamfarbe auswählen</p>
-            <input class="form-control colorPicker" type="color" id="teamColor" name="color">
+            <input
+              class="form-control colorPicker"
+              type="color"
+              id="teamColor"
+              name="color"
+              v-model="color"
+            />
           </div>
           <div class="modal-footer">
             <button
@@ -57,7 +63,13 @@
             >
               Abbruch
             </button>
-            <button type="button" id="Send" onclick="onSubmit()" class="btn btn-success" data-dismiss="modal">
+            <button
+              type="button"
+              id="Send"
+              class="btn btn-success"
+              data-dismiss="modal"
+              v-on:click="submitted()"
+            >
               Team erstellen
             </button>
           </div>
@@ -77,17 +89,17 @@ export default {
     };
   },
   methods: {
-    onSubmit(e) {
-      e.preventDefault();
-
+    submitted() {
+      var name = document.getElementById('teamName').value;
+      var color = document.getElementById('teamColor').value;
       if (!this.name) {
         alert("Keinen Namen vergeben");
         return;
       }
 
       const newTeam = {
-        name: this.text,
-        color: this.color,
+        name: name,
+        color: color,
       };
 
       this.$emit("add-team", newTeam);
@@ -95,6 +107,7 @@ export default {
 
       (this.name = ""), (this.color = "");
     },
+    
   },
 };
 </script>
@@ -110,7 +123,5 @@ export default {
 
 .colorPicker {
   padding: 0 0 0 0;
-  
 }
-
 </style>
