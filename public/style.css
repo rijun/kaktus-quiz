@@ -11,35 +11,48 @@
     margin-top: 5%;
 }
 
-.header{
+.header {
     background-color: #5abb90;
 }
 
-.header-text{
+.header-text {
     text-align: center;
 }
 
-.navbar-nav{
+.navbar-nav {
     text-align: right;
 }
-.navbar-brand{
+
+.navbar-brand {
     font-size: 50px;
     margin-bottom: 0px;
     margin-left: 5px;
 }
 
-.column{
+.column {
     border-style: outset;
     border-color: black;
     background-color: rgb(92, 179, 160);
 }
 
-.container{
+.container {
     margin-top: 50px;
 }
 
-th{
+th {
     font-weight: bold;
     font-size: 20px;
     background-color: #348936;
+}
+
+footer {
+    position: absolute;
+    display: flex;
+    color: white;
+    align-items: center;
+    height: 1.5 rem;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgb(45, 48, 51);
 }
