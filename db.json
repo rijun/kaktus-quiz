@@ -1,15 +1,20 @@
 {
-  "teams": [
-    {
-      "id": "1",
-      "name": "BlinMachine",
-      "color": "#588522",
-      "points": "0"
-    },
-    {
-      "name": "BlitzKrieg",
-      "color": "#ff0000",
-      "id": "ot8kRxY"
-    }
-  ]
+    "teams": [{
+            "id": "1",
+            "name": "BlinMachine",
+            "color": "#588522",
+            "points": "0"
+        },
+        {
+            "name": "BlitzKrieg",
+            "color": "#ff0000",
+            "id": "ot8kRxY"
+        },
+        {
+            "name": "Richard",
+            "color": "#ff0080",
+            "id": "MlBfgss"
+        }
+    ]
+
 }

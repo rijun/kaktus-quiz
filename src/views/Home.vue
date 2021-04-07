@@ -1,8 +1,11 @@
 <template>
   <AddTeam @add-team="addTeam" />
   <Teams :teams="teams" />
-  <router-link to="/selection" class="btn btn-primary" tag="button"
-    >Quiz starten"</router-link
+  <router-link
+    to="/selection"
+    class="btn btn-lg btn-primary btn-start"
+    tag="button"
+    >Quiz starten</router-link
   >
 </template>
 

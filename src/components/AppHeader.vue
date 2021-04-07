@@ -1,6 +1,6 @@
 <template>
   <div>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light">
         <img
           class="navbar-image"
           src="https://kaktus-cloud.ddns.net/images/Logo_rund.png"
@@ -22,9 +22,10 @@
           </button>
         </div>
         <Button text="Team Erstellen" class="generateTeam" data-toggle="modal" data-target="#myModal"/>
+        <p id="replaceButton">HIII</p>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ml-auto">
-            <div id="Butto"></div>
+            <div id="Button"></div>
           </div>
         </div>
       </nav>

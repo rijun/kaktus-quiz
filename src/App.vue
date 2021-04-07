@@ -13,11 +13,6 @@ export default {
   components: {
     AppHeader,
   },
-  /* data() {
-    return {
-      teams: [],
-    };
-  }, */
 };
 </script>
 
