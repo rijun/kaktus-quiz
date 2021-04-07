@@ -22,7 +22,6 @@
           </button>
         </div>
         <Button text="Team Erstellen" class="generateTeam" data-toggle="modal" data-target="#myModal"/>
-        <p id="replaceButton">HIII</p>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ml-auto">
             <div id="Button"></div>
