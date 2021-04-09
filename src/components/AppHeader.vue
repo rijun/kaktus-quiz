@@ -55,4 +55,6 @@ export default {
   position: absolute; 
   right: 50px;
 }
+
+
 </style>
