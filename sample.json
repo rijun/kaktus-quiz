@@ -1,0 +1,33 @@
+[{
+        "category": 0,
+        "difficulty": 1,
+        "question": "Was bedeutet die Bezeichnung LHC?",
+        "answer": "Large Hadron Collider",
+        "options": [
+            "Light Helium Construction",
+            "Left Height Certainty",
+            "Linear Helix Correction"
+        ]
+    }, {
+        "category": 1,
+        "difficulty": 0,
+        "question": "Wer sang das Lied 'Currywurst'?",
+        "answer": "Herberg Grönemeyer",
+        "options": [
+            "Helge Schneider",
+            "Dieter Nuhr",
+            "Wiegald Boning"
+        ]
+    },
+    {
+        "category": 1,
+        "difficulty": 0,
+        "question": "Wer sang das Lied 'Currywurst'?",
+        "answer": "Herberg Grönemeyer",
+        "options": [
+            "Helge Schneider",
+            "Dieter Nuhr",
+            "Wiegald Boning"
+        ]
+    }
+]
