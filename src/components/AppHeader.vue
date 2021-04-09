@@ -3,7 +3,7 @@
       <nav class="navbar navbar-expand-lg navbar-light">
         <img
           class="navbar-image"
-          src="https://kaktus-cloud.ddns.net/images/Logo_rund.png"
+          src="../assets/Logo_rund.png"
         />
         <div>
           <div class="text-center">
