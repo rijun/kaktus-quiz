@@ -1,459 +1,157 @@
+// Starter-Code: Quiz.vue Component
 <template>
-  <div class="container-fluid bg-info">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3>
-            <span class="label label-warning" id="qid">2</span> THREE is CORRECT
-          </h3>
-        </div>
-        <div class="modal-body">
-          <div class="col-xs-3 col-xs-offset-5">
-            <div id="loadbar" style="display: none">
-              <div class="blockG" id="rotateG_01"></div>
-              <div class="blockG" id="rotateG_02"></div>
-              <div class="blockG" id="rotateG_03"></div>
-              <div class="blockG" id="rotateG_04"></div>
-              <div class="blockG" id="rotateG_05"></div>
-              <div class="blockG" id="rotateG_06"></div>
-              <div class="blockG" id="rotateG_07"></div>
-              <div class="blockG" id="rotateG_08"></div>
-            </div>
-          </div>
+  <div id="quiz-container">
+    <h1 id="logo-headline">FRAGE</h1>
+    <!-- div#correctAnswers -->
+    <div>
+      <h1 v-html="loading ? 'Loading...' : currentQuestion.question"></h1>
+      <form v-if="currentQuestion">
+        <button
+        v-for="answer in currentQuestion.answers" 
+        :index="currentQuestion.key"
+        :key="answer"
+        :v-html="answer"
+        @click.prevent="handleButtonClick"
+        ></button> <!-- v-for loops through each answer and creates a button for each -->
+      </form>
 
-          <div class="quiz" id="quiz" data-toggle="buttons">
-            <label class="element-animation1 btn btn-lg btn-primary btn-block"
-              ><span class="btn-label"
-                ><i class="glyphicon glyphicon-chevron-right"></i
-              ></span>
-              <input type="radio" name="q_answer" value="1" />1 One</label
-            >
-            <label class="element-animation2 btn btn-lg btn-primary btn-block"
-              ><span class="btn-label"
-                ><i class="glyphicon glyphicon-chevron-right"></i
-              ></span>
-              <input type="radio" name="q_answer" value="2" />2 Two</label
-            >
-            <label class="element-animation3 btn btn-lg btn-primary btn-block"
-              ><span class="btn-label"
-                ><i class="glyphicon glyphicon-chevron-right"></i
-              ></span>
-              <input type="radio" name="q_answer" value="3" />3 Three</label
-            >
-            <label class="element-animation4 btn btn-lg btn-primary btn-block"
-              ><span class="btn-label"
-                ><i class="glyphicon glyphicon-chevron-right"></i
-              ></span>
-              <input type="radio" name="q_answer" value="4" />4 Four</label
-            >
-          </div>
-        </div>
-        <div class="modal-footer text-muted">
-          <span id="answer"></span>
-        </div>
-      </div>
+      <hr class="divider" />
     </div>
+    <!-- in the div of v-html is nothing allowed, not even comments -->
+    <!-- Only the first question is displayed -->
+
+    <hr class="divider" />
   </div>
 </template>
 
 <script>
-import Button from "../components/Buttons";
-
 export default {
-  name: "Quiz",
-  components: {
-    Button,
+  name: "Question",
+  data() {
+    return {
+      questions: [],
+      loading: true,
+      index: 0
+    };
   },
-
+  computed: {
+    currentQuestion() {
+      if (this.questions !== []) {
+        return this.questions[this.index];
+      }
+      return null;
+    }
+  },
+    //Keyword this usually refers to the Vue Component Instance, e.g. this.questions points
+    //to the questions array in the data() function 
   methods: {
-    function() {
-      var loading = $("#loadbar").hide();
-      $(document)
-        .ajaxStart(function () {
-          loading.show();
-        })
-        .ajaxStop(function () {
-          loading.hide();
-        });
-
-      $("label.btn").on("click", function () {
-        var choice = $(this).find("input:radio").val();
-        $("#loadbar").show();
-        $("#quiz").fadeOut();
-        setTimeout(function () {
-          $("#answer").html($(this).checking(choice));
-          $("#quiz").show();
-          $("#loadbar").fadeOut();
-          /* something else */
-        }, 1500);
+    async fetchQuestions() {
+      this.loading = true;
+      //fetch questions
+      let response = await fetch(
+        "https://opentdb.com/api.php?amount=10&category=9"
+      );
+      //convert questions into json
+      let jsonResponse = await response.json();
+      //manipulate questions
+      let data = jsonResponse.results.map((question) => {
+        question.answers = [
+          question.correct_answer,
+          /* ...question.incorrect_anwser, */
+          /*The tree dots go to the existing object and get all its properties, copies these and then overwrite
+            explicitly the other properties defined (https://oprea.rocks/blog/what-do-the-three-dots-mean-in-javascript) */
+        ];
+        return question;
       });
-
-      $ans = 3;
-
-      $.fn.checking = function (ck) {
-        if (ck != $ans) return "INCORRECT";
-        else return "CORRECT";
-      };
+      //put data on question property
+      this.questions = data;
+      this.loading = false;
+      console.log(data);
     },
+  },
+  //Code inside mounted() runs after the Component has mounted
+  mounted() {
+    this.fetchQuestions();
   },
 };
 </script>
 
 <style scoped>
-#qid {
-  padding: 10px 15px;
-  -moz-border-radius: 50px;
-  -webkit-border-radius: 50px;
-  border-radius: 20px;
+body {
+  background-color: white;
 }
-label.btn {
-  padding: 18px 60px;
-  white-space: normal;
-  -webkit-transform: scale(1);
-  -moz-transform: scale(1);
-  -o-transform: scale(1);
-  -webkit-transition-duration: 0.3s;
-  -moz-transition-duration: 0.3s;
-  -o-transition-duration: 0.3s;
+#quiz-container {
+  margin: 1rem auto;
+  padding: 1rem;
+  max-width: 750px;
 }
 
-label.btn:hover {
-  text-shadow: 0 3px 2px rgba(0, 0, 0, 0.4);
-  -webkit-transform: scale(1.1);
-  -moz-transform: scale(1.1);
-  -o-transform: scale(1.1);
-}
-label.btn-block {
-  text-align: left;
-  position: relative;
+#logo-headline {
+  font-size: 3rem;
+  padding: 0.5rem;
+  color: #f50057;
+  text-align: center;
 }
 
-label .btn-label {
-  position: absolute;
-  left: 0;
-  top: 0;
-  display: inline-block;
-  padding: 0 10px;
-  background: rgba(0, 0, 0, 0.15);
-  height: 100%;
+#logo-crown {
+  display: block;
+  width: 40%;
+  margin: 0 auto;
 }
 
-label .glyphicon {
-  top: 34%;
-}
-.element-animation1 {
-  animation: animationFrames ease 0.8s;
-  animation-iteration-count: 1;
-  transform-origin: 50% 50%;
-  -webkit-animation: animationFrames ease 0.8s;
-  -webkit-animation-iteration-count: 1;
-  -webkit-transform-origin: 50% 50%;
-  -ms-animation: animationFrames ease 0.8s;
-  -ms-animation-iteration-count: 1;
-  -ms-transform-origin: 50% 50%;
-}
-.element-animation2 {
-  animation: animationFrames ease 1s;
-  animation-iteration-count: 1;
-  transform-origin: 50% 50%;
-  -webkit-animation: animationFrames ease 1s;
-  -webkit-animation-iteration-count: 1;
-  -webkit-transform-origin: 50% 50%;
-  -ms-animation: animationFrames ease 1s;
-  -ms-animation-iteration-count: 1;
-  -ms-transform-origin: 50% 50%;
-}
-.element-animation3 {
-  animation: animationFrames ease 1.2s;
-  animation-iteration-count: 1;
-  transform-origin: 50% 50%;
-  -webkit-animation: animationFrames ease 1.2s;
-  -webkit-animation-iteration-count: 1;
-  -webkit-transform-origin: 50% 50%;
-  -ms-animation: animationFrames ease 1.2s;
-  -ms-animation-iteration-count: 1;
-  -ms-transform-origin: 50% 50%;
-}
-.element-animation4 {
-  animation: animationFrames ease 1.4s;
-  animation-iteration-count: 1;
-  transform-origin: 50% 50%;
-  -webkit-animation: animationFrames ease 1.4s;
-  -webkit-animation-iteration-count: 1;
-  -webkit-transform-origin: 50% 50%;
-  -ms-animation: animationFrames ease 1.4s;
-  -ms-animation-iteration-count: 1;
-  -ms-transform-origin: 50% 50%;
-}
-@keyframes animationFrames {
-  0% {
-    opacity: 0;
-    transform: translate(-1500px, 0px);
+@media only screen and (max-width: 500px) {
+  #logo-crown {
+    width: 30%;
   }
 
-  60% {
-    opacity: 1;
-    transform: translate(30px, 0px);
-  }
-
-  80% {
-    transform: translate(-10px, 0px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translate(0px, 0px);
+  #logo-headline {
+    font-size: 1.8rem;
   }
 }
 
-@-webkit-keyframes animationFrames {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate(-1500px, 0px);
-  }
-  60% {
-    opacity: 1;
-    -webkit-transform: translate(30px, 0px);
-  }
-
-  80% {
-    -webkit-transform: translate(-10px, 0px);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: translate(0px, 0px);
-  }
+h1 {
+  font-size: 1.3rem;
+  padding: 0.7rem;
 }
 
-@-ms-keyframes animationFrames {
-  0% {
-    opacity: 0;
-    -ms-transform: translate(-1500px, 0px);
-  }
-
-  60% {
-    opacity: 1;
-    -ms-transform: translate(30px, 0px);
-  }
-  80% {
-    -ms-transform: translate(-10px, 0px);
-  }
-
-  100% {
-    opacity: 1;
-    -ms-transform: translate(0px, 0px);
-  }
+.divider {
+  margin: 0.5rem 0;
+  border: 3px solid rgba(102, 255, 166, 0.7);
+  border-radius: 2px;
+  box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.3);
 }
 
-.modal-header {
-  background-color: transparent;
-  color: inherit;
+form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.modal-body {
-  min-height: 205px;
-}
-#loadbar {
-  position: absolute;
-  width: 62px;
-  height: 77px;
-  top: 2em;
-}
-.blockG {
-  position: absolute;
-  background-color: #fff;
-  width: 10px;
-  height: 24px;
-  -moz-border-radius: 8px 8px 0 0;
-  -moz-transform: scale(0.4);
-  -moz-animation-name: fadeG;
-  -moz-animation-duration: 0.8800000000000001s;
-  -moz-animation-iteration-count: infinite;
-  -moz-animation-direction: linear;
-  -webkit-border-radius: 8px 8px 0 0;
-  -webkit-transform: scale(0.4);
-  -webkit-animation-name: fadeG;
-  -webkit-animation-duration: 0.8800000000000001s;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-direction: linear;
-  -ms-border-radius: 8px 8px 0 0;
-  -ms-transform: scale(0.4);
-  -ms-animation-name: fadeG;
-  -ms-animation-duration: 0.8800000000000001s;
-  -ms-animation-iteration-count: infinite;
-  -ms-animation-direction: linear;
-  -o-border-radius: 8px 8px 0 0;
-  -o-transform: scale(0.4);
-  -o-animation-name: fadeG;
-  -o-animation-duration: 0.8800000000000001s;
-  -o-animation-iteration-count: infinite;
-  -o-animation-direction: linear;
-  border-radius: 8px 8px 0 0;
-  transform: scale(0.4);
-  animation-name: fadeG;
-  animation-duration: 0.8800000000000001s;
-  animation-iteration-count: infinite;
-  animation-direction: linear;
-}
-#rotateG_01 {
-  left: 0;
-  top: 28px;
-  -moz-animation-delay: 0.33s;
-  -moz-transform: rotate(-90deg);
-  -webkit-animation-delay: 0.33s;
-  -webkit-transform: rotate(-90deg);
-  -ms-animation-delay: 0.33s;
-  -ms-transform: rotate(-90deg);
-  -o-animation-delay: 0.33s;
-  -o-transform: rotate(-90deg);
-  animation-delay: 0.33s;
-  transform: rotate(-90deg);
-}
-#rotateG_02 {
-  left: 8px;
-  top: 10px;
-  -moz-animation-delay: 0.44000000000000006s;
-  -moz-transform: rotate(-45deg);
-  -webkit-animation-delay: 0.44000000000000006s;
-  -webkit-transform: rotate(-45deg);
-  -ms-animation-delay: 0.44000000000000006s;
-  -ms-transform: rotate(-45deg);
-  -o-animation-delay: 0.44000000000000006s;
-  -o-transform: rotate(-45deg);
-  animation-delay: 0.44000000000000006s;
-  transform: rotate(-45deg);
-}
-#rotateG_03 {
-  left: 26px;
-  top: 3px;
-  -moz-animation-delay: 0.55s;
-  -moz-transform: rotate(0deg);
-  -webkit-animation-delay: 0.55s;
-  -webkit-transform: rotate(0deg);
-  -ms-animation-delay: 0.55s;
-  -ms-transform: rotate(0deg);
-  -o-animation-delay: 0.55s;
-  -o-transform: rotate(0deg);
-  animation-delay: 0.55s;
-  transform: rotate(0deg);
-}
-#rotateG_04 {
-  right: 8px;
-  top: 10px;
-  -moz-animation-delay: 0.66s;
-  -moz-transform: rotate(45deg);
-  -webkit-animation-delay: 0.66s;
-  -webkit-transform: rotate(45deg);
-  -ms-animation-delay: 0.66s;
-  -ms-transform: rotate(45deg);
-  -o-animation-delay: 0.66s;
-  -o-transform: rotate(45deg);
-  animation-delay: 0.66s;
-  transform: rotate(45deg);
-}
-#rotateG_05 {
-  right: 0;
-  top: 28px;
-  -moz-animation-delay: 0.7700000000000001s;
-  -moz-transform: rotate(90deg);
-  -webkit-animation-delay: 0.7700000000000001s;
-  -webkit-transform: rotate(90deg);
-  -ms-animation-delay: 0.7700000000000001s;
-  -ms-transform: rotate(90deg);
-  -o-animation-delay: 0.7700000000000001s;
-  -o-transform: rotate(90deg);
-  animation-delay: 0.7700000000000001s;
-  transform: rotate(90deg);
-}
-#rotateG_06 {
-  right: 8px;
-  bottom: 7px;
-  -moz-animation-delay: 0.8800000000000001s;
-  -moz-transform: rotate(135deg);
-  -webkit-animation-delay: 0.8800000000000001s;
-  -webkit-transform: rotate(135deg);
-  -ms-animation-delay: 0.8800000000000001s;
-  -ms-transform: rotate(135deg);
-  -o-animation-delay: 0.8800000000000001s;
-  -o-transform: rotate(135deg);
-  animation-delay: 0.8800000000000001s;
-  transform: rotate(135deg);
-}
-#rotateG_07 {
-  bottom: 0;
-  left: 26px;
-  -moz-animation-delay: 0.99s;
-  -moz-transform: rotate(180deg);
-  -webkit-animation-delay: 0.99s;
-  -webkit-transform: rotate(180deg);
-  -ms-animation-delay: 0.99s;
-  -ms-transform: rotate(180deg);
-  -o-animation-delay: 0.99s;
-  -o-transform: rotate(180deg);
-  animation-delay: 0.99s;
-  transform: rotate(180deg);
-}
-#rotateG_08 {
-  left: 8px;
-  bottom: 7px;
-  -moz-animation-delay: 1.1s;
-  -moz-transform: rotate(-135deg);
-  -webkit-animation-delay: 1.1s;
-  -webkit-transform: rotate(-135deg);
-  -ms-animation-delay: 1.1s;
-  -ms-transform: rotate(-135deg);
-  -o-animation-delay: 1.1s;
-  -o-transform: rotate(-135deg);
-  animation-delay: 1.1s;
-  transform: rotate(-135deg);
-}
-@-moz-keyframes fadeG {
-  0% {
-    background-color: #000;
-  }
-
-  100% {
-    background-color: #fff;
-  }
+button {
+  font-size: 1.1rem;
+  box-sizing: border-box;
+  padding: 1rem;
+  margin: 0.3rem;
+  width: 47%;
+  background-color: rgba(100, 100, 100, 0.3);
+  border: none;
+  border-radius: 0.4rem;
+  box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
-@-webkit-keyframes fadeG {
-  0% {
-    background-color: #000;
-  }
-
-  100% {
-    background-color: #fff;
-  }
+button:hover:enabled {
+  transform: scale(1.02);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -1px rgba(0, 0, 0, 0.2);
 }
 
-@-ms-keyframes fadeG {
-  0% {
-    background-color: #000;
-  }
-
-  100% {
-    background-color: #fff;
-  }
+button:focus {
+  outline: none;
 }
 
-@-o-keyframes fadeG {
-  0% {
-    background-color: #000;
-  }
-  100% {
-    background-color: #fff;
-  }
+button:active:enabled {
+  transform: scale(1.05);
 }
 
-@keyframes fadeG {
-  0% {
-    background-color: #000;
-  }
-
-  100% {
-    background-color: #fff;
-  }
-}
 </style>
