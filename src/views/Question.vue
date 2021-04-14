@@ -3,24 +3,23 @@
   <div id="quiz-container">
     <h1 id="logo-headline">FRAGE</h1>
     <!-- div#correctAnswers -->
+    <hr class="divider" />
     <div>
       <h1 v-html="loading ? 'Loading...' : currentQuestion.question"></h1>
       <form v-if="currentQuestion">
         <button
-        v-for="answer in currentQuestion.answers" 
-        :index="currentQuestion.key"
-        :key="answer"
-        :v-html="answer"
-        @click.prevent="handleButtonClick"
-        ></button> <!-- v-for loops through each answer and creates a button for each -->
+          v-for="answer in currentQuestion.answers"
+          :index="currentQuestion.key"
+          :key="answer"
+          v-html="answer"
+          @click.prevent="handleButtonClick"
+        ></button>
+        <!-- v-for loops through each answer and creates a button for each -->
       </form>
-
       <hr class="divider" />
     </div>
     <!-- in the div of v-html is nothing allowed, not even comments -->
     <!-- Only the first question is displayed -->
-
-    <hr class="divider" />
   </div>
 </template>
 
@@ -42,8 +41,8 @@ export default {
       return null;
     }
   },
-    //Keyword this usually refers to the Vue Component Instance, e.g. this.questions points
-    //to the questions array in the data() function 
+  //Keyword this usually refers to the Vue Component Instance, e.g. this.questions points
+  //to the questions array in the data() function
   methods: {
     async fetchQuestions() {
       this.loading = true;
@@ -57,7 +56,7 @@ export default {
       let data = jsonResponse.results.map((question) => {
         question.answers = [
           question.correct_answer,
-          /* ...question.incorrect_anwser, */
+          ...question.incorrect_answers
           /*The tree dots go to the existing object and get all its properties, copies these and then overwrite
             explicitly the other properties defined (https://oprea.rocks/blog/what-do-the-three-dots-mean-in-javascript) */
         ];
@@ -153,5 +152,4 @@ button:focus {
 button:active:enabled {
   transform: scale(1.05);
 }
-
 </style>
