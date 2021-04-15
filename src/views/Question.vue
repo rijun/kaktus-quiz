@@ -5,7 +5,7 @@
     <!-- div#correctAnswers -->
     <hr class="divider" />
     <div>
-      <h1 v-html="loading ? 'Loading...' : currentQuestion.question"></h1>
+      <h1 class="question" v-html="loading ? 'Loading...' : currentQuestion.question"></h1>
       <form v-if="currentQuestion">
         <button
           v-for="answer in currentQuestion.answers"
@@ -121,7 +121,7 @@ export default {
     async fetchQuestions() {
       this.loading = true;
       let response = await fetch(
-        "https://opentdb.com/api.php?amount=5&category=9"
+        "https://opentdb.com/api.php?amount=10&category=9"
       );
       //convert questions into json
       let jsonResponse = await response.json();
@@ -152,6 +152,7 @@ export default {
       this.questions = data;
       this.loading = false;
     },
+
     handleButtonClick: function(event) {
       /* Find index to identiy question object in data */
       let index = event.target.getAttribute("index");
@@ -170,6 +171,7 @@ export default {
       /* Invoke checkAnswer to check Answer */
       this.checkAnswer(event, index);
     },
+
     checkAnswer: function(event, index) {
       let question = this.questions[index];
       if (question.userAnswer) {
@@ -210,47 +212,30 @@ export default {
 </script>
 
 <style scoped>
-body {
-  background-color: white;
-}
+
 #quiz-container {
   margin: 1rem auto;
   padding: 1rem;
   max-width: 750px;
-  background-color: slategray;
+  background-color: rgb(45, 48, 51);
 }
 
 #logo-headline {
   font-size: 3rem;
   padding: 0.5rem;
-  color: #f50057;
+  color: rgb(5, 255, 44, 0.9);
   text-align: center;
 }
 
-#logo-crown {
-  display: block;
-  width: 40%;
-  margin: 0 auto;
-}
-
-@media only screen and (max-width: 500px) {
-  #logo-crown {
-    width: 30%;
-  }
-
-  #logo-headline {
-    font-size: 1.8rem;
-  }
-}
-
-h1 {
+.question {
   font-size: 1.3rem;
   padding: 0.7rem;
+  color: snow;
 }
 
 .divider {
   margin: 0.5rem 0;
-  border: 3px solid rgba(102, 255, 166, 0.7);
+  border: 3px solid rgb(0, 204, 255);
   border-radius: 2px;
   box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.3);
 }
@@ -268,7 +253,8 @@ button {
   padding: 1rem;
   margin: 0.3rem;
   width: 47%;
-  background-color: rgba(100, 100, 100, 0.3);
+  background-color: rgba(114, 114, 117, 0.3);
+  color: snow;
   border: none;
   border-radius: 0.4rem;
   box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
@@ -286,5 +272,61 @@ button:focus {
 
 button:active:enabled {
   transform: scale(1.05);
+}
+
+@keyframes flashButton {
+  0% {
+    opacity: 1;
+    transform: scale(1.01);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+button.clicked {
+  pointer-events: none;
+}
+
+button.rightAnswer {
+  animation: flashButton;
+  animation-duration: 700ms;
+  animation-delay: 200ms;
+  animation-iteration-count: 3;
+  animation-timing-function: ease-in-out;
+  color: black;
+  background: linear-gradient(
+    210deg,
+    rgba(4, 121, 50, 0.952),
+    rgba(4, 121, 50, 0.952)
+  );
+}
+
+button.wrongAnswer {
+  color: black;
+  background: linear-gradient(
+    210deg,
+    rgba(245, 4, 4, 0.699),
+    rgba(245, 4, 4, 0.699)
+  );
+}
+
+button.showRightAnswer {
+  animation: flashButton;
+  animation-duration: 700ms;
+  animation-delay: 200ms;
+  animation-iteration-count: 2;
+  animation-timing-function: ease-in-out;
+  color: black;
+  background: linear-gradient(
+    210deg,
+    rgba(4, 121, 50, 0.952),
+    rgba(4, 121, 50, 0.952)
+  );
 }
 </style>
