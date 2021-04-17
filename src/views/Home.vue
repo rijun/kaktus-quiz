@@ -4,15 +4,18 @@
   <router-link
     to="/selection"
     class="btn btn-lg btn-primary btn-start"
-    tag="button"
+    tag="button" 
     >Quiz starten</router-link
   >
+  <button @click="quizStarted">Greet</button>
 </template>
 
 <script>
 import Button from "../components/Buttons";
 import AddTeam from "../components/AddTeam";
 import Teams from "../components/Teams";
+
+
 
 export default {
   name: "Home",
@@ -49,6 +52,9 @@ export default {
   },
   async created() {
     this.teams = await this.fetchTeams();
+  },
+  quizStarted: function(event) {
+   alert('Hello Vadim!')
   },
 };
 </script>

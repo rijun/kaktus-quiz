@@ -7,7 +7,7 @@
         />
         <div>
           <div class="text-center">
-            <p class="navbar-brand">Kaktus-Quiz</p>
+            <router-link class="navbar-brand" to="/">Kaktus-Quiz</router-link>
           </div>
           <button
             class="navbar-toggler"
