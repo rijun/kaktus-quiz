@@ -42,7 +42,7 @@ export default {
       //Keyword this usually refers to the Vue Component Instance, e.g. this.questions points
       //to the questions array in the data() function
     },
-    score() {
+    /* score() {
       if (this.questions !== []) {
         // Here, we want to collect data in an object about the users statistics - later be emitted on an event when users finishes quiz
         return {
@@ -72,7 +72,7 @@ export default {
           correctlyAnsweredQuestions: 0,
         };
       }
-    },
+    }, 
     correctAnswers() {
       if (this.questions && this.questions.length > 0) {
         let streakCounter = 0;
@@ -87,7 +87,7 @@ export default {
       } else {
         return "--";
       }
-    },
+    },*/
     pluralizeAnswer() {
       // For grammatical correctness
       return this.correctAnswers === 1 ? "Answer" : "Answers";

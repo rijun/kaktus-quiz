@@ -7,7 +7,7 @@
         />
         <div>
           <div class="text-center">
-            <router-link class="navbar-brand" to="/">Kaktus-Quiz</router-link>
+            <router-link class="navbar-brand" @click="unhideButton" to="/">Kaktus-Quiz</router-link>
           </div>
           <button
             class="navbar-toggler"
@@ -21,7 +21,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
         </div>
-        <Button text="Team Erstellen" class="generateTeam" data-toggle="modal" data-target="#myModal"/>
+        <Button text="Team Erstellen" id="createTeam" class="generateTeam" data-toggle="modal" data-target="#myModal"/>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ml-auto">
             <div id="Button"></div>
@@ -43,6 +43,13 @@ export default {
     components: {
         Button,
         AddTeam,
+    },
+    methods: {
+      unhideButton() {
+      let bttn = document.getElementById("createTeam");
+      bttn.classList.remove("hidden");
+      console.log("added Button")
+    },
     }
 };
 </script>

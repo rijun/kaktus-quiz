@@ -51,6 +51,10 @@
     margin-top: 50px;
 }
 
+.hidden {
+    display: none;
+}
+
 .btn-start {
     margin-top: 5%;
     padding: .5rem 1rem;
