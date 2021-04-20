@@ -1,56 +1,62 @@
 <template>
   <div>
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <img
-          class="navbar-image"
-          src="../assets/Logo_rund.png"
-        />
-        <div>
-          <div class="text-center">
-            <router-link class="navbar-brand" @click="unhideButton" to="/">Kaktus-Quiz</router-link>
-          </div>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <img class="navbar-image" src="../assets/Logo_rund.png" />
+      <div>
+        <div class="text-center">
+          <router-link class="navbar-brand" @click="unhideButton" to="/"
+            >Kaktus-Quiz</router-link
           >
-            <span class="navbar-toggler-icon"></span>
-          </button>
         </div>
-        <Button text="Team Erstellen" id="createTeam" class="generateTeam" data-toggle="modal" data-target="#myModal"/>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav ml-auto">
-            <div id="Button"></div>
-          </div>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <Button
+        type="button"
+        text="Team Erstellen"
+        id="createTeam"
+        class="generateTeam"
+        data-bs-toggle="modal"
+        data-bs-target="#teamCreator"
+      />
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <div id="Button"></div>
         </div>
-      </nav>
+      </div>
+    </nav>
   </div>
 </template>
 
 <script>
-import Button from './Buttons';
-import AddTeam from './AddTeam';
+import Button from "./Buttons";
+import AddTeam from "./AddTeam";
 export default {
   name: "AppHeader",
-    props: {
-        title: String,
-        showAddTask: Boolean,
-    },
-    components: {
-        Button,
-        AddTeam,
-    },
-    methods: {
-      unhideButton() {
+  props: {
+    title: String,
+    showAddTask: Boolean,
+  },
+  components: {
+    Button,
+    AddTeam,
+  },
+  methods: {
+    unhideButton() {
       let bttn = document.getElementById("createTeam");
       bttn.classList.remove("hidden");
-      console.log("added Button")
+      console.log("added Button");
     },
-    }
+  },
 };
 </script>
 
@@ -59,9 +65,7 @@ export default {
   font-size: 20px;
   height: 50px;
   width: 200px;
-  position: absolute; 
+  position: absolute;
   right: 50px;
 }
-
-
 </style>

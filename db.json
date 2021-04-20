@@ -1,19 +1,15 @@
 {
     "teams": [{
-            "id": "1",
             "name": "BlinMachine",
             "color": "#588522",
-            "points": "0"
+            "points": 0,
+            "id": "1"
         },
         {
-            "name": "BlitzKrieg",
-            "color": "#ff0000",
-            "id": "ot8kRxY"
-        },
-        {
-            "name": "Richard",
-            "color": "#ff0080",
-            "id": "MlBfgss"
+            "name": "Quizzinator",
+            "color": "#000000",
+            "points": 0,
+            "id": "Wx54ltJ"
         }
     ],
     "questions": [{
@@ -149,5 +145,4 @@
             ]
         }
     ]
-
 }

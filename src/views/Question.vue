@@ -42,7 +42,7 @@ export default {
       //Keyword this usually refers to the Vue Component Instance, e.g. this.questions points
       //to the questions array in the data() function
     },
-    /* score() {
+    score() {
       if (this.questions !== []) {
         // Here, we want to collect data in an object about the users statistics - later be emitted on an event when users finishes quiz
         return {
@@ -76,6 +76,7 @@ export default {
     correctAnswers() {
       if (this.questions && this.questions.length > 0) {
         let streakCounter = 0;
+        console.log(streakCounter)
         this.questions.forEach(function(question) {
           if (!question.rightAnswer) {
             return;
@@ -87,7 +88,7 @@ export default {
       } else {
         return "--";
       }
-    },*/
+    },
     pluralizeAnswer() {
       // For grammatical correctness
       return this.correctAnswers === 1 ? "Answer" : "Answers";
@@ -121,7 +122,7 @@ export default {
     async fetchQuestions() {
       this.loading = true;
       let response = await fetch(
-        "https://opentdb.com/api.php?amount=10&category=9"
+        "https://opentdb.com/api.php?amount=3&type=multiple"
       );
       //convert questions into json
       let jsonResponse = await response.json();

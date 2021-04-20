@@ -1,28 +1,28 @@
 <template>
   <div class="container">
     <div class="row justify-content-center">
-      <div class="question col-3">Frage 1</div>
-      <div class="question col-3">Frage 2</div>
-      <div class="question col-3">Frage 3</div>
-      <div class="question col-3">Frage 4</div>
+      <router-link to="/question" class="btn question col-3">Frage 1</router-link>
+      <router-link to="/question" class="btn question col-3">Frage 2</router-link>
+      <router-link to="/question" class="btn question col-3">Frage 3</router-link>
+      <router-link to="/question" class="btn question col-3">Frage 4</router-link>
     </div>
     <div class="row justify-content-center">
-      <div class="question col-3 align-middle">Frage 5</div>
-      <div class="question col-3">Frage 6</div>
-      <div class="question col-3">Frage 7</div>
-      <div class="question col-3">Frage 8</div>
+      <router-link to="/question" class="btn question col-3">Frage 5</router-link>
+      <router-link to="/question" class="btn question col-3">Frage 6</router-link>
+      <router-link to="/question" class="btn question col-3">Frage 7</router-link>
+      <router-link to="/question" class="btn question col-3">Frage 8</router-link>
     </div>
     <div class="row justify-content-center">
-      <div class="question col-3">Frage 9</div>
-      <div class="question col-3">Frage 10</div>
-      <div class="question col-3">Frage 11</div>
-      <div class="question col-3">Frage 12</div>
+      <router-link to="/question" class="btn question col-3">Frage 9</router-link>
+      <router-link to="/question" class="btn question col-3">Frage 10</router-link>
+      <router-link to="/question" class="btn question col-3">Frage 11</router-link>
+      <router-link to="/question" class="btn question col-3">Frage 12</router-link>
     </div>
     <div class="row justify-content-center">
-      <div class="question col-3">Frage 13</div>
-      <div class="question col-3">Frage 14</div>
-      <div class="question col-3">Frage 15</div>
-      <div class="question col-3">Frage 16</div>
+      <router-link to="/question" class="btn question col-3">Frage 13</router-link>
+      <router-link to="/question" class="btn question col-3">Frage 14</router-link>
+      <router-link to="/question" class="btn question col-3">Frage 15</router-link>
+      <router-link to="/question" class="btn question col-3">Frage 16</router-link>
     </div>
   </div>
 </template>
