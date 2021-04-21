@@ -81,6 +81,7 @@ export default {
         name: name,
         color: color,
         points: points,
+        turn: false,
       };
 
       this.$emit("add-team", newTeam);

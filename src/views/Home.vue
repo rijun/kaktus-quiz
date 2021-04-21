@@ -5,8 +5,10 @@
     to="/selection"
     class="btn btn-lg btn-primary btn-start"
     tag="button"
+    @click="startQuiz"
     >Quiz starten</router-link
   >
+  <Button text="TEst" @click="startQuiz"/>
 </template>
 
 <script>
@@ -27,6 +29,10 @@ export default {
     };
   },
   methods: {
+    startQuiz() {
+      
+      console.log("Blin");
+    },
     async addTeam(team) {
       const res = await fetch("http://localhost:5001/teams", {
         method: "POST",
