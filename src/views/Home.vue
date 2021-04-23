@@ -60,8 +60,8 @@ export default {
       })
       const data = await res.json()
 
-      this.teams = this.teams.map((teams) =>
-        teams.id === selectedID ? { ...teams, turn: data.turn } : teams
+      this.teams = this.teams.map((team) =>
+        team.id === selectedID ? { ...team, turn: data.turn } : team
       );
     },
     async addTeam(team) {
