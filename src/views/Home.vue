@@ -29,7 +29,7 @@ export default {
     };
   },
   methods: {
-    selectTeam() {
+    async selectTeam() {
       //here I am fetching all the data from the teams json file
       fetch("http://localhost:5001/teams")
         .then((response) => response.json())
@@ -46,22 +46,23 @@ export default {
       let selectedID = idList[ran_key];
       console.log("SELECTED " + selectedID);
 
-      /*  const toggleTask = await this.fetchTask(id);
-      const updateTask = { ...toggleTask, reminder: !toggleTask.reminder };
 
-      const res = await fetch(`api/tasks/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-type": "application/json",
+      //map allows to manipulate the array and return the array
+      const startingTeam = await this.fetchTeams(selectedID)
+      console.log(startingTeam)
+      const updTurn = {...startingTeam, turn: !startingTeam.turn}
+      const res = await fetch(`http://localhost:5001/teams/${selectedID}`, {
+        method: 'PUT', //PUT is used for modifying json
+        header: {
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify(updateTask),
-      });
+        body: JSON.stringify(updTurn)
+      })
+      const data = await res.json()
 
-      const data = await res.json();
-
-      this.tasks = this.tasks.map((task) =>
-        task.id === id ? { ...task, reminder: data.reminder } : task
-      ); */
+      this.teams = this.teams.map((teams) =>
+        teams.id === selectedID ? { ...teams, turn: data.turn } : teams
+      );
     },
     async addTeam(team) {
       const res = await fetch("http://localhost:5001/teams", {

@@ -1,159 +1,157 @@
 {
-  "teams": [
-    {
-      "name": "BlinMachine",
-      "color": "#588522",
-      "points": 0,
-      "turn": false,
-      "id": "1"
-    },
-    {
-      "name": "Quizzinator",
-      "color": "#000000",
-      "points": 0,
-      "turn": false,
-      "id": "Wx54ltJ"
-    },
-    {
-      "name": "TETTEST",
-      "color": "#ed41d6",
-      "points": 0,
-      "turn": false,
-      "id": "4SgIpB4"
-    }
-  ],
-  "questions": [
-    {
-      "id": 0,
-      "answered": 0,
-      "question": "Um einen traditionellen Millionärssalat herstellen zu können, müssen Köche auf den Seychellen ...?",
-      "answer": "warten, bis eine Palme von selbst umfällt",
-      "options": [
-        "die Mondphasen sehr genau studieren",
-        "am Strand nach angespülten Seeigeln suchen",
-        "warten, bis eine Palme von selbst umfällt"
-      ]
-    },
-    {
-      "id": 1,
-      "answered": 0,
-      "question": "Warum ist das Geräusch so laut, wenn ein Luftballon ans Ohr gehalten und mit dem Finger auf den Ballon getippt wird?",
-      "answer": "Die komprimierte Luft im Ballon wirkt wie ein Verstärker.",
-      "options": [
-        "Die Spannung der Ballonhaut sorgt für starke Vibrationen.",
-        "Die komprimierte Luft im Ballon wirkt wie ein Verstärker.",
-        "Die runde Oberfläche transportiert Schall in mehrere Richtungen."
-      ]
-    },
-    {
-      "id": 2,
-      "answered": 0,
-      "question": "Muss ein Kunde laut in Kraft getretener Kassenbon-Pflicht seinen Beleg entgegennehmen?",
-      "answer": "Nein, die Kassenbon-Pflicht gilt nur für den Verkäufer.",
-      "options": [
-        "nur, wenn es sich um verderbliche Ware handelt",
-        "Ja, die Kassenbon-Pflicht gilt für Käufer und Verkäufer.",
-        "Nein, die Kassenbon-Pflicht gilt nur für den Verkäufer."
-      ]
-    },
-    {
-      "id": 3,
-      "answered": 0,
-      "question": "Was sollte laut Verbraucherschützern generell nicht zum Einfrieren von Lebensmitteln verwendet werden?",
-      "answer": "Müllbeutel",
-      "options": [
-        "Frischhaltefolie",
-        "Glasbehälter",
-        "Müllbeutel"
-      ]
-    },
-    {
-      "id": 4,
-      "answered": 0,
-      "question": "Die aus Österreich stammende Schauspielerin Hedy Lamarr ging in den 1930er-Jahren nach Hollywood und war nebenberuflich eine ...?",
-      "answer": "Erfinderin, die die Grundlage für die moderne Mobiltelefonie legte",
-      "options": [
-        "Rennfahrerin, die auf allen Kontinenten Rennen fuhr",
-        "Autorin, die unter dem Pseudonym Virginia Woolf Bestseller schrieb",
-        "Erfinderin, die die Grundlage für die moderne Mobiltelefonie legte"
-      ]
-    },
-    {
-      "id": 5,
-      "answered": 0,
-      "question": "Die 4-K-Regel hilft Patienten, ...?",
-      "answer": "Risiken bei der Medikamenteneinnahme zu vermeiden",
-      "options": [
-        "Krankenkassenbeiträge zu sparen",
-        "einen kurzfristigen Termin bei einem Facharzt zu finden",
-        "Risiken bei der Medikamenteneinnahme zu vermeiden"
-      ]
-    },
-    {
-      "id": 6,
-      "answered": 0,
-      "question": "Wie kam das größte Amphitheater des römischen Reiches zu seinem heutigen Namen „Kolosseum“?",
-      "answer": "Eine riesige Statue stand einst neben der Arena.",
-      "options": [
-        "Eine riesige Statue stand einst neben der Arena.",
-        "Die Ausmaße übertrafen die damalige Vorstellungskraft.",
-        "Die stattfindenden Spiele waren „colossicotera“, also „grandios“."
-      ]
-    },
-    {
-      "id": 7,
-      "answered": 0,
-      "question": "Forscher der portugiesischen Universität Minho haben einen Baumwollstoff entwickelt, der ...?",
-      "answer": "bei Kontakt mit Schweiß ein feines Zitronenaroma ausströmt",
-      "options": [
-        "unter Wasser besonders warm hält",
-        "vor Blitzeinschlägen schützt",
-        "bei Kontakt mit Schweiß ein feines Zitronenaroma ausströmt"
-      ]
-    },
-    {
-      "id": 8,
-      "answered": 0,
-      "question": "Forscher fanden heraus, dass Ziegen ...?",
-      "answer": "die Emotionen anderer Ziegen hören können",
-      "options": [
-        "die Emotionen anderer Ziegen hören können",
-        "neidisch auf die Bärte von anderen Ziegen sind",
-        "bei der Partnerwahl auf die Hufgröße achten"
-      ]
-    },
-    {
-      "id": 9,
-      "answered": 0,
-      "question": "Was passierte im Februar 2018 während eines belgischen Ligaspiels zwischen Brügge und Charleroi?",
-      "answer": "Ein Flitzer zeigte dem Schiedsrichter die Rote Karte.",
-      "options": [
-        "Brügges Trainer wechselte sich selbst ein und schoss ein Eigentor.",
-        "Ein Flitzer zeigte dem Schiedsrichter die Rote Karte.",
-        "Wegen eines Defekts lief durchgehend die Bewässerungsanlage."
-      ]
-    },
-    {
-      "id": 10,
-      "answered": 0,
-      "question": "Warum wird in Schauhöhlen alte, funktionstüchtige Beleuchtung immer häufiger durch moderne LED-Technik ersetzt?",
-      "answer": "Pflanzenbewuchs soll verringert werden.",
-      "options": [
-        "Pflanzenbewuchs soll verringert werden.",
-        "Die Höhlen wirken im LED-Licht deutlich größer.",
-        "Die Lampenwärme stoppte vielerorts das Tropfsteinwachstum."
-      ]
-    },
-    {
-      "id": 11,
-      "answered": 0,
-      "question": "Zu welcher Uhrzeit ist der vierte Reaktor des Atomkraftwerkes von Chernobyl zum ersten mal explodiert? ",
-      "answer": "26. April 1986, 01:23:58",
-      "options": [
-        "26. April 1986, 05:49:21",
-        "28. April 1986, 16:17:35",
-        "26. April 1986, 01:23:58"
-      ]
-    }
-  ]
+    "teams": [{
+            "name": "BlinMachine",
+            "color": "#588522",
+            "points": 0,
+            "turn": false,
+            "id": "1"
+        },
+        {
+            "name": "Quizzinator",
+            "color": "#000000",
+            "points": 0,
+            "turn": false,
+            "id": "Wx54ltJ"
+        },
+        {
+            "name": "TETTEST",
+            "color": "#ed41d6",
+            "points": 0,
+            "turn": false,
+            "id": "4SgIpB4"
+        }
+    ],
+    "questions": [{
+            "id": 0,
+            "answered": 0,
+            "question": "Um einen traditionellen Millionärssalat herstellen zu können, müssen Köche auf den Seychellen ...?",
+            "answer": "warten, bis eine Palme von selbst umfällt",
+            "options": [
+                "die Mondphasen sehr genau studieren",
+                "am Strand nach angespülten Seeigeln suchen",
+                "warten, bis eine Palme von selbst umfällt"
+            ]
+        },
+        {
+            "id": 1,
+            "answered": 0,
+            "question": "Warum ist das Geräusch so laut, wenn ein Luftballon ans Ohr gehalten und mit dem Finger auf den Ballon getippt wird?",
+            "answer": "Die komprimierte Luft im Ballon wirkt wie ein Verstärker.",
+            "options": [
+                "Die Spannung der Ballonhaut sorgt für starke Vibrationen.",
+                "Die komprimierte Luft im Ballon wirkt wie ein Verstärker.",
+                "Die runde Oberfläche transportiert Schall in mehrere Richtungen."
+            ]
+        },
+        {
+            "id": 2,
+            "answered": 0,
+            "question": "Muss ein Kunde laut in Kraft getretener Kassenbon-Pflicht seinen Beleg entgegennehmen?",
+            "answer": "Nein, die Kassenbon-Pflicht gilt nur für den Verkäufer.",
+            "options": [
+                "nur, wenn es sich um verderbliche Ware handelt",
+                "Ja, die Kassenbon-Pflicht gilt für Käufer und Verkäufer.",
+                "Nein, die Kassenbon-Pflicht gilt nur für den Verkäufer."
+            ]
+        },
+        {
+            "id": 3,
+            "answered": 0,
+            "question": "Was sollte laut Verbraucherschützern generell nicht zum Einfrieren von Lebensmitteln verwendet werden?",
+            "answer": "Müllbeutel",
+            "options": [
+                "Frischhaltefolie",
+                "Glasbehälter",
+                "Müllbeutel"
+            ]
+        },
+        {
+            "id": 4,
+            "answered": 0,
+            "question": "Die aus Österreich stammende Schauspielerin Hedy Lamarr ging in den 1930er-Jahren nach Hollywood und war nebenberuflich eine ...?",
+            "answer": "Erfinderin, die die Grundlage für die moderne Mobiltelefonie legte",
+            "options": [
+                "Rennfahrerin, die auf allen Kontinenten Rennen fuhr",
+                "Autorin, die unter dem Pseudonym Virginia Woolf Bestseller schrieb",
+                "Erfinderin, die die Grundlage für die moderne Mobiltelefonie legte"
+            ]
+        },
+        {
+            "id": 5,
+            "answered": 0,
+            "question": "Die 4-K-Regel hilft Patienten, ...?",
+            "answer": "Risiken bei der Medikamenteneinnahme zu vermeiden",
+            "options": [
+                "Krankenkassenbeiträge zu sparen",
+                "einen kurzfristigen Termin bei einem Facharzt zu finden",
+                "Risiken bei der Medikamenteneinnahme zu vermeiden"
+            ]
+        },
+        {
+            "id": 6,
+            "answered": 0,
+            "question": "Wie kam das größte Amphitheater des römischen Reiches zu seinem heutigen Namen „Kolosseum“?",
+            "answer": "Eine riesige Statue stand einst neben der Arena.",
+            "options": [
+                "Eine riesige Statue stand einst neben der Arena.",
+                "Die Ausmaße übertrafen die damalige Vorstellungskraft.",
+                "Die stattfindenden Spiele waren „colossicotera“, also „grandios“."
+            ]
+        },
+        {
+            "id": 7,
+            "answered": 0,
+            "question": "Forscher der portugiesischen Universität Minho haben einen Baumwollstoff entwickelt, der ...?",
+            "answer": "bei Kontakt mit Schweiß ein feines Zitronenaroma ausströmt",
+            "options": [
+                "unter Wasser besonders warm hält",
+                "vor Blitzeinschlägen schützt",
+                "bei Kontakt mit Schweiß ein feines Zitronenaroma ausströmt"
+            ]
+        },
+        {
+            "id": 8,
+            "answered": 0,
+            "question": "Forscher fanden heraus, dass Ziegen ...?",
+            "answer": "die Emotionen anderer Ziegen hören können",
+            "options": [
+                "die Emotionen anderer Ziegen hören können",
+                "neidisch auf die Bärte von anderen Ziegen sind",
+                "bei der Partnerwahl auf die Hufgröße achten"
+            ]
+        },
+        {
+            "id": 9,
+            "answered": 0,
+            "question": "Was passierte im Februar 2018 während eines belgischen Ligaspiels zwischen Brügge und Charleroi?",
+            "answer": "Ein Flitzer zeigte dem Schiedsrichter die Rote Karte.",
+            "options": [
+                "Brügges Trainer wechselte sich selbst ein und schoss ein Eigentor.",
+                "Ein Flitzer zeigte dem Schiedsrichter die Rote Karte.",
+                "Wegen eines Defekts lief durchgehend die Bewässerungsanlage."
+            ]
+        },
+        {
+            "id": 10,
+            "answered": 0,
+            "question": "Warum wird in Schauhöhlen alte, funktionstüchtige Beleuchtung immer häufiger durch moderne LED-Technik ersetzt?",
+            "answer": "Pflanzenbewuchs soll verringert werden.",
+            "options": [
+                "Pflanzenbewuchs soll verringert werden.",
+                "Die Höhlen wirken im LED-Licht deutlich größer.",
+                "Die Lampenwärme stoppte vielerorts das Tropfsteinwachstum."
+            ]
+        },
+        {
+            "id": 11,
+            "answered": 0,
+            "question": "Zu welcher Uhrzeit ist der vierte Reaktor des Atomkraftwerkes von Chernobyl zum ersten mal explodiert? ",
+            "answer": "26. April 1986, 01:23:58",
+            "options": [
+                "26. April 1986, 05:49:21",
+                "28. April 1986, 16:17:35",
+                "26. April 1986, 01:23:58"
+            ]
+        }
+    ]
 }
