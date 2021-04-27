@@ -188,7 +188,11 @@ export default {
           /* Set class on Button if user answered right, to celebrate right answer with animation joyfulButton */
           event.target.classList.add("rightAnswer");
           /* Set rightAnswer on question to true, computed property can track a streak out of 10 questions */
+          console.log("correct answer");
           this.questions[index].rightAnswer = true;
+
+          //Here i will appoint the earned points to the team
+          appointPoints();
         } else {
           /* Mark users answer as wrong answer */
           event.target.classList.add("wrongAnswer");
@@ -204,6 +208,40 @@ export default {
         }
       }
     },
+    async appointPoints() {
+      fetch("http://localhost:5001/teams")
+        .then((response) => response.json())
+        .then((data) => (this.weatherDataList = data));
+      //here i am going through the json and save all IDs in an array
+      let idList = [];
+      this.weatherDataList.forEach((teamID) => {
+        idList.push(teamID.id);
+      });
+      //here i am generating a random number and select array position
+      var obj_keys = Object.keys(idList);
+      var ran_key = obj_keys[Math.floor(Math.random() * obj_keys.length)];
+      var id = idList[ran_key];
+      console.log("SELECTED " + id);
+    
+    
+      //map allows to manipulate the array and return the array
+      const toggleTeam = await this.fetchTeam(id);
+      const updateTeam = { ...toggleTeam, points: +100 };
+
+      const res = await fetch(`http://localhost:5001/teams/${id}`, {
+        method: "PUT", //PUT is used for modifying json
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(updateTeam),
+      });
+
+      const data = await res.json();
+
+      this.teams = this.teams.map((team) =>
+        team.id === id ? { ...team, turn: data.turn } : team
+      );
+    }
   },
   //Code inside mounted() runs after the Component has mounted
   mounted() {
