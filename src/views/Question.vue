@@ -5,7 +5,10 @@
     <!-- div#correctAnswers -->
     <hr class="divider" />
     <div>
-      <h1 class="question" v-html="loading ? 'Loading...' : currentQuestion.question"></h1>
+      <h1
+        class="question"
+        v-html="loading ? 'Loading...' : currentQuestion.question"
+      ></h1>
       <form v-if="currentQuestion">
         <button
           v-for="answer in currentQuestion.answers"
@@ -72,12 +75,12 @@ export default {
           correctlyAnsweredQuestions: 0,
         };
       }
-    }, 
+    },
     correctAnswers() {
       if (this.questions && this.questions.length > 0) {
         let streakCounter = 0;
-        console.log(streakCounter)
-        this.questions.forEach(function(question) {
+        console.log(streakCounter);
+        this.questions.forEach(function (question) {
           if (!question.rightAnswer) {
             return;
           } else if (question.rightAnswer === true) {
@@ -99,7 +102,7 @@ export default {
       }
       /* Check if all questions have been answered */
       let questionsAnswered = 0;
-      this.questions.forEach(function(question) {
+      this.questions.forEach(function (question) {
         question.rightAnswer !== null ? questionsAnswered++ : null;
       });
       return questionsAnswered === this.questions.length;
@@ -154,7 +157,7 @@ export default {
       this.loading = false;
     },
 
-    handleButtonClick: function(event) {
+    handleButtonClick: function (event) {
       /* Find index to identiy question object in data */
       let index = event.target.getAttribute("index");
       let pollutedUserAnswer = event.target.innerHTML; // innerHTML is polluted with decoded HTML entities e.g ' from &#039;
@@ -173,12 +176,12 @@ export default {
       this.checkAnswer(event, index);
     },
 
-    checkAnswer: function(event, index) {
+    checkAnswer: function (event, index) {
       let question = this.questions[index];
       if (question.userAnswer) {
         if (this.index < this.questions.length - 1) {
           setTimeout(
-            function() {
+            function () {
               this.index += 1;
             }.bind(this),
             3000
@@ -200,7 +203,7 @@ export default {
           /* Show right Answer */
           let correctAnswer = this.questions[index].correct_answer;
           let allButtons = document.querySelectorAll(`[index="${index}"]`);
-          allButtons.forEach(function(button) {
+          allButtons.forEach(function (button) {
             if (button.innerHTML === correctAnswer) {
               button.classList.add("showRightAnswer");
             }
@@ -209,39 +212,31 @@ export default {
       }
     },
     async appointPoints() {
-      fetch("http://localhost:5001/teams")
-        .then((response) => response.json())
-        .then((data) => (this.weatherDataList = data));
-      //here i am going through the json and save all IDs in an array
-      let idList = [];
-      this.weatherDataList.forEach((teamID) => {
-        idList.push(teamID.id);
-      });
-      //here i am generating a random number and select array position
-      var obj_keys = Object.keys(idList);
-      var ran_key = obj_keys[Math.floor(Math.random() * obj_keys.length)];
-      var id = idList[ran_key];
-      console.log("SELECTED " + id);
-    
-    
-      //map allows to manipulate the array and return the array
-      const toggleTeam = await this.fetchTeam(id);
-      const updateTeam = { ...toggleTeam, points: +100 };
-
-      const res = await fetch(`http://localhost:5001/teams/${id}`, {
-        method: "PUT", //PUT is used for modifying json
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(updateTeam),
-      });
+      /* var id = 1;
+      const res = await fetch(`http://localhost:5001/teams/${id}`);
 
       const data = await res.json();
 
-      this.teams = this.teams.map((team) =>
-        team.id === id ? { ...team, turn: data.turn } : team
-      );
-    }
+      this.setUsername(id, data); */
+      console.log("Blin");
+    },
+
+    async fetchTeam(id) {
+      const res = await fetch(`http://localhost:5001/teams/${id}`);
+
+      const data = await res.json();
+
+      return data;
+    },
+
+    async setUsername(id, data) {
+      for (var i = 0; i < data.length; i++) {
+        if (data[i].id === id) {
+          data[i].points += 100;
+          return;
+        }
+      }
+    },
   },
   //Code inside mounted() runs after the Component has mounted
   mounted() {
@@ -251,7 +246,6 @@ export default {
 </script>
 
 <style scoped>
-
 #quiz-container {
   margin: 1rem auto;
   padding: 1rem;
