@@ -195,7 +195,7 @@ export default {
           this.questions[index].rightAnswer = true;
 
           //Here i will appoint the earned points to the team
-          appointPoints();
+          this.appointPoints();
         } else {
           /* Mark users answer as wrong answer */
           event.target.classList.add("wrongAnswer");
@@ -212,13 +212,38 @@ export default {
       }
     },
     async appointPoints() {
-      /* var id = 1;
-      const res = await fetch(`http://localhost:5001/teams/${id}`);
+      var id = "1";
+      console.log("Blin");
+      /* const res = await fetch(`http://localhost:5001/teams/`);
 
       const data = await res.json();
 
-      this.setUsername(id, data); */
-      console.log("Blin");
+      console.log(data);
+      for (var i = 0; i < data.length; i++) {
+        console.log(data[i])
+        if (data[i].id === id) {
+          console.log("entered loop")
+          data[i].name = "Cyka";
+          console.log(data[i].points)
+          break;
+        }
+      } */
+      const toggleTeam = await this.fetchTeam(id);
+      const updateTeam = { ...toggleTeam, points: toggleTeam.points + 100 };
+
+      const res = await fetch(`http://localhost:5001/teams/${id}`, {
+        method: "PUT", //PUT is used for modifying json
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(updateTeam),
+      });
+
+      const data = await res.json();
+
+      this.teams = this.teams.map((team) =>
+        team.id === id ? { ...team, points: data.points } : team
+      );
     },
 
     async fetchTeam(id) {
@@ -227,15 +252,6 @@ export default {
       const data = await res.json();
 
       return data;
-    },
-
-    async setUsername(id, data) {
-      for (var i = 0; i < data.length; i++) {
-        if (data[i].id === id) {
-          data[i].points += 100;
-          return;
-        }
-      }
     },
   },
   //Code inside mounted() runs after the Component has mounted

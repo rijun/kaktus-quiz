@@ -42,6 +42,7 @@ export default {
 
       this.teams = [...this.teams, data];
     },
+
     async selectTeam() {
       //here I am fetching all the data from the teams json file
       fetch("http://localhost:5001/teams")
@@ -57,7 +58,6 @@ export default {
       var ran_key = obj_keys[Math.floor(Math.random() * obj_keys.length)];
       var id = idList[ran_key];
       console.log("SELECTED " + id);
-    
     
       //map allows to manipulate the array and return the array
       const toggleTeam = await this.fetchTeam(id);
