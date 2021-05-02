@@ -25,15 +25,18 @@
       <router-link to="/question" class="btn question col-3">Frage 16</router-link>
     </div>
   </div>
+  <account-info username='matt' />
 </template>
 
 <script>
 import Button from "../components/Buttons";
+import Selection from "../views/Question";
 
 export default {
   name: "Selection",
   components: {
     Button,
+    Selection,
   },
 };
 </script>

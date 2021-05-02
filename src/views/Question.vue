@@ -21,6 +21,9 @@
       </form>
       <hr class="divider" />
     </div>
+    <div id="account-info">
+      {{ username }}
+    </div>
     <!-- in the div of v-html is nothing allowed, not even comments -->
     <!-- Only the first question is displayed -->
   </div>
@@ -36,6 +39,7 @@ export default {
       index: 0,
     };
   },
+  props: ["username"],
   computed: {
     currentQuestion() {
       if (this.questions !== []) {
