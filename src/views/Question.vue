@@ -21,15 +21,16 @@
       </form>
       <hr class="divider" />
     </div>
-    <div id="account-info">
-      {{ username }}
-    </div>
+    <h1>Your difficulty is {{ difficulty }}</h1>
+    <h1>Your category is {{ category }}</h1>
     <!-- in the div of v-html is nothing allowed, not even comments -->
     <!-- Only the first question is displayed -->
   </div>
 </template>
 
 <script>
+import router from "../router";
+
 export default {
   name: "Question",
   data() {
@@ -37,7 +38,14 @@ export default {
       questions: [],
       loading: true,
       index: 0,
+      debug: false,
+      difficulty: '',
+      category: ''
     };
+  },
+  created() {
+    this.difficulty = this.$route.params.difficulty;
+    this.category = this.$route.params.category
   },
   props: ["username"],
   computed: {
@@ -126,6 +134,9 @@ export default {
     },
   },
   methods: {
+    navigate() {
+      router.go(-1);
+    },
     async fetchQuestions() {
       this.loading = true;
       let response = await fetch(
@@ -157,6 +168,7 @@ export default {
         index++;
         return question;
       });
+      console.log(data);
       this.questions = data;
       this.loading = false;
     },
@@ -244,6 +256,7 @@ export default {
       });
 
       const data = await res.json();
+      console.log(data);
 
       this.teams = this.teams.map((team) =>
         team.id === id ? { ...team, points: data.points } : team
