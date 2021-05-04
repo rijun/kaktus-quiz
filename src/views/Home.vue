@@ -5,7 +5,6 @@
     to="/selection"
     class="btn btn-lg btn-primary btn-start"
     tag="button"
-    @click="selectTeam"
     >Quiz starten</router-link
   >
 </template>
@@ -14,7 +13,6 @@
 import Button from "../components/Buttons";
 import AddTeam from "../components/AddTeam";
 import Teams from "../components/Teams";
-import { onBeforeMount } from "vue";
 
 export default {
   name: "Home",

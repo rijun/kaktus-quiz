@@ -39,15 +39,15 @@ export default {
       loading: true,
       index: 0,
       debug: false,
-      difficulty: '',
-      category: ''
+      difficulty: "",
+      category: "",
     };
   },
+  //this code gets the sent params and declares these to the variables
   created() {
     this.difficulty = this.$route.params.difficulty;
-    this.category = this.$route.params.category
+    this.category = this.$route.params.category;
   },
-  props: ["username"],
   computed: {
     currentQuestion() {
       if (this.questions !== []) {
@@ -57,7 +57,7 @@ export default {
       //Keyword this usually refers to the Vue Component Instance, e.g. this.questions points
       //to the questions array in the data() function
     },
-    score() {
+    /* score() {
       if (this.questions !== []) {
         // Here, we want to collect data in an object about the users statistics - later be emitted on an event when users finishes quiz
         return {
@@ -87,7 +87,7 @@ export default {
           correctlyAnsweredQuestions: 0,
         };
       }
-    },
+    }, */
     correctAnswers() {
       if (this.questions && this.questions.length > 0) {
         let streakCounter = 0;
@@ -130,17 +130,17 @@ export default {
       completed &&
         setTimeout(() => {
           this.$emit("quiz-completed", this.score);
-        }, 3000); // wait 3 seconds until button animation is over
+          console.log("completed");
+          router.push({ path: "./selection" });
+        }, 1500); // wait 1,5 seconds until button animation is over
     },
   },
   methods: {
-    navigate() {
-      router.go(-1);
-    },
     async fetchQuestions() {
       this.loading = true;
       let response = await fetch(
-        "https://opentdb.com/api.php?amount=3&type=multiple"
+        "https://opentdb.com/api.php?amount=3&category=31&difficulty=" +
+          this.difficulty
       );
       //convert questions into json
       let jsonResponse = await response.json();
@@ -200,7 +200,7 @@ export default {
             function () {
               this.index += 1;
             }.bind(this),
-            3000
+            1500
           );
         }
         if (question.userAnswer === question.correct_answer) {
