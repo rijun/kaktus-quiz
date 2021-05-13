@@ -20,10 +20,10 @@
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
-      <div class="smth">
-        <button id="addJSON" class="btn btn-primary addJSON">
+      
+        <!-- <button id="addJSON" class="btn btn-primary addJSON">
           <i class="far fa-file-code"></i>
-        </button>
+        </button> -->
         <Button
           type="button"
           text="Team Erstellen"
@@ -32,7 +32,6 @@
           data-bs-toggle="modal"
           data-bs-target="#teamCreator"
         />
-      </div>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
           <div id="Button"></div>
@@ -71,9 +70,7 @@ export default {
   font-size: 20px;
   height: 50px;
   width: 200px;
-}
-
-.smth {
-  float: right;
+  position: absolute;
+  right: 50px
 }
 </style>

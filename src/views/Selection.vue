@@ -37,6 +37,16 @@ export default {
     Button,
     Selection,
   },
+  methods:{
+    changeRoute() {
+      console.log("Disabled")
+      let bttn = this.button;
+      bttn.classList.add("disabled");
+      console.log("route disabled");
+      router.push({ path: "./selection", params: { difficulty: this.dificulty, category: this.category }});
+    }
+
+  }
 };
 </script>
 
