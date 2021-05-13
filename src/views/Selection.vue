@@ -1,28 +1,28 @@
 <template>
   <div class="container">
     <div class="row justify-content-center">
-            <router-link :to="{ name: 'Question', params: { difficulty: 'easy', category: 'history' }}" class="btn question col-3">Geschichte - Einfach</router-link>
-            <router-link :to="{ name: 'Question', params: { difficulty: 'easy', category: 'physics' }}" class="btn question col-3">Physik - Einfach</router-link>
-            <router-link :to="{ name: 'Question', params: { difficulty: 'easy', category: 'film' }}" class="btn question col-3">Film & Gaming - Einfach</router-link>
-            <router-link :to="{ name: 'Question', params: { difficulty: 'easy', category: 'world' }}" class="btn question col-3">Um die Welt - Einfach</router-link>
+            <router-link :to="{ name: 'Question', params: { variant: 'first',  category: 'history' }}" class="btn question col-3">Geschichte / Politik 1</router-link>
+            <router-link :to="{ name: 'Question', params: { variant: 'second', category: 'history' }}" class="btn question col-3">Geschichte / Politik 2</router-link>
+            <router-link :to="{ name: 'Question', params: { variant: 'first',  category: 'film' }}"    class="btn question col-3">Film 1</router-link>
+            <router-link :to="{ name: 'Question', params: { variant: 'second', category: 'film' }}"    class="btn question col-3">Film 2</router-link>
         </div>
         <div class="row justify-content-center">
-            <router-link :to="{ name: 'Question', params: { difficulty: 'hard', category: 'history' }}" class="btn question col-3">Geschichte - Schwer</router-link>
-            <router-link :to="{ name: 'Question', params: { difficulty: 'hard', category: 'physics' }}" class="btn question col-3">Physik - Schwer</router-link>
-            <router-link :to="{ name: 'Question', params: { difficulty: 'hard', category: 'film' }}" class="btn question col-3">Film & Gaming - Schwer</router-link>
-            <router-link :to="{ name: 'Question', params: { difficulty: 'hard', category: 'world' }}" class="btn question col-3">Um die Welt - Schwer</router-link>
+            <router-link :to="{ name: 'Question', params: { variant: 'first',  category: 'music' }}"   class="btn question col-3">Musik 1</router-link>
+            <router-link :to="{ name: 'Question', params: { variant: 'second', category: 'music' }}"    class="btn question col-3">Musik 2</router-link>
+            <router-link :to="{ name: 'Question', params: { variant: 'first',  category: 'gaming' }}"  class="btn question col-3">Gaming 1</router-link>
+            <router-link :to="{ name: 'Question', params: { variant: 'second', category: 'gaming' }}"  class="btn question col-3">Gaming 2</router-link>
         </div>
         <div class="row justify-content-center">
-            <router-link :to="{ name: 'Question', params: { difficulty: 'easy', category: 'knowledge' }}" class="btn question col-3">Allgemeinwissen - Einfach</router-link>
-            <router-link :to="{ name: 'Question', params: { difficulty: 'easy', category: 'politics' }}" class="btn question col-3">Politik - Einfach</router-link>
-            <router-link :to="{ name: 'Question', params: { difficulty: 'easy', category: 'sport' }}" class="btn question col-3">Sport - Einfach</router-link>
-            <router-link :to="{ name: 'Question', params: { difficulty: 'easy', category: 'questionmark' }}" class="btn question col-3">? - Einfach</router-link>
+            <router-link :to="{ name: 'Question', params: { variant: 'first',  category: 'world' }}"   class="btn question col-3">Um die Welt 1</router-link>
+            <router-link :to="{ name: 'Question', params: { variant: 'second', category: 'world' }}"   class="btn question col-3">Um die Welt 2</router-link>
+            <router-link :to="{ name: 'Question', params: { variant: 'first',  category: 'general' }}" class="btn question col-3">Allgemeinwissen 1</router-link>
+            <router-link :to="{ name: 'Question', params: { variant: 'second', category: 'general' }}" class="btn question col-3">Allgemeinwissen 2</router-link>
         </div>
         <div class="row justify-content-center">
-            <router-link :to="{ name: 'Question', params: { difficulty: 'hard', category: 'knowledge' }}" class="btn question col-3">Allgemeinwissen - Schwer</router-link>
-            <router-link :to="{ name: 'Question', params: { difficulty: 'hard', category: 'politics' }}" class="btn question col-3">Politik - Schwer</router-link>
-            <router-link :to="{ name: 'Question', params: { difficulty: 'hard', category: 'sport' }}" class="btn question col-3">Sport - Schwer</router-link>
-            <router-link :to="{ name: 'Question', params: { difficulty: 'hard', category: 'questionmark' }}" class="btn question col-3">? - Schwer</router-link>
+            <router-link :to="{ name: 'Question', params: { variant: 'first',  category: 'tech' }}"    class="btn question col-3">Technik 1</router-link>
+            <router-link :to="{ name: 'Question', params: { variant: 'second', category: 'tech' }}"    class="btn question col-3">Technik 2</router-link>
+            <router-link :to="{ name: 'Question', params: { variant: 'first',  category: 'science' }}" class="btn question col-3">Naturwissenschaften 1</router-link>
+            <router-link :to="{ name: 'Question', params: { variant: 'second', category: 'science' }}" class="btn question col-3">Naturwissenschaften 2</router-link>
         </div>
   </div>
 </template>
