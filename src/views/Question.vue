@@ -142,13 +142,6 @@ export default {
         "https://opentdb.com/api.php?amount=3&category=12&difficulty=" +
           this.difficulty
       );
-      const ress = await fetch("http://localhost:5002/results")
-      const da = await ress.json();
-      console.log(da)
-
-
-
-
 
       //convert questions into json
       let jsonResponse = await response.json();

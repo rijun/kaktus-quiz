@@ -20,14 +20,19 @@
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
-      <Button
-        type="button"
-        text="Team Erstellen"
-        id="createTeam"
-        class="generateTeam"
-        data-bs-toggle="modal"
-        data-bs-target="#teamCreator"
-      />
+      <div class="smth">
+        <button id="addJSON" class="btn btn-primary addJSON">
+          <i class="far fa-file-code"></i>
+        </button>
+        <Button
+          type="button"
+          text="Team Erstellen"
+          id="createTeam"
+          class="generateTeam"
+          data-bs-toggle="modal"
+          data-bs-target="#teamCreator"
+        />
+      </div>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
           <div id="Button"></div>
@@ -61,11 +66,14 @@ export default {
 </script>
 
 <style scoped>
+
 .generateTeam {
   font-size: 20px;
   height: 50px;
   width: 200px;
-  position: absolute;
-  right: 50px;
+}
+
+.smth {
+  float: right;
 }
 </style>
