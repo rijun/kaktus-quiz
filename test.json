@@ -1,0 +1,72 @@
+{
+    "results": [{
+            "category": "Entertainment: Japanese Anime & Manga",
+            "type": "boolean",
+            "difficulty": "easy",
+            "question": "The anime &quot;Lucky Star&quot; follows the story of one girl who is unaware she is God.",
+            "correct_answer": "False",
+            "incorrect_answers": [
+                "True"
+            ]
+        },
+        {
+            "category": "Entertainment: Japanese Anime & Manga",
+            "type": "boolean",
+            "difficulty": "easy",
+            "question": "The name of the attack &quot;Kamehameha&quot; in Dragon Ball Z was named after a famous king of Hawaii.",
+            "correct_answer": "True",
+            "incorrect_answers": [
+                "False"
+            ]
+        },
+        {
+            "category": "Entertainment: Japanese Anime & Manga",
+            "type": "multiple",
+            "difficulty": "easy",
+            "question": "Which part from the JoJo&#039;s Bizarre Adventure manga is about a horse race across America?",
+            "correct_answer": "Part 7: Steel Ball Run",
+            "incorrect_answers": [
+                "Part 6: Stone Ocean",
+                "Part 3: Stardust Crusaders",
+                "Part 5: Golden Wind"
+            ]
+        },
+        {
+            "category": "Entertainment: Music",
+            "type": "multiple",
+            "difficulty": "hard",
+            "question": "Which of these songs is NOT included in the Suicide Squad OST?",
+            "correct_answer": "Skies on Fire - AC/DC",
+            "incorrect_answers": [
+                "Heathens - Twenty One Pilots",
+                "Without Me - Eminem",
+                "Fortunate Son - Creedence Clearwater Revival"
+            ]
+        },
+        {
+            "category": "Entertainment: Music",
+            "type": "multiple",
+            "difficulty": "hard",
+            "question": "Who is a pioneer of &quot;Minimal Music&quot; in 1960s?",
+            "correct_answer": "Steve Reich",
+            "incorrect_answers": [
+                "Wolfgang Amadeus Mozart",
+                "Brian Eno",
+                "Sigur R&oacute;s"
+            ]
+        },
+        {
+            "category": "Entertainment: Music",
+            "type": "multiple",
+            "difficulty": "hard",
+            "question": "Artis Leon Ivey Jr. is better known as which rap artist?",
+            "correct_answer": "Coolio",
+            "incorrect_answers": [
+                "Dr Dre",
+                "Snoop Dogg",
+                "Ice T"
+            ]
+        }
+    ]
+
+}
