@@ -39,13 +39,14 @@ export default {
       loading: true,
       index: 0,
       debug: false,
+      variant: "",
       difficulty: "",
-      category: "",
+      variant: "",
     };
   },
   //this code gets the sent params and declares these to the variables
   created() {
-    this.difficulty = this.$route.params.difficulty;
+    this.variant = this.$route.params.variant;
     this.category = this.$route.params.category;
   },
   computed: {
@@ -138,16 +139,14 @@ export default {
   methods: {
     async fetchQuestions() {
       this.loading = true;
-      let response = await fetch(
-        "https://opentdb.com/api.php?amount=3&category=12&difficulty=" +
-          this.difficulty
-      );
-
-      //convert questions into json
-      let jsonResponse = await response.json();
+      /* const ress = await fetch("http://localhost:5002/results")
+      const da = await ress.json();
+      console.log(da) */
+      let res = await fetch("http://localhost:5002/questions").then(response => response.json()).catch(error => console.error(error));
+      let results = res[this.category][this.variant];
       let index = 0; // index is used to identify single answer
       //manipulate questions
-      let data = jsonResponse.results.map((question) => {
+      let data = results.map((question) => {
         // put answers on question into single array
         question.answers = [
           question.correct_answer,
@@ -172,6 +171,7 @@ export default {
       console.log(data);
       this.questions = data;
       this.loading = false;
+      this.difficulty = this.questions[this.index]["difficulty"];
     },
 
     handleButtonClick: function (event) {
@@ -229,6 +229,7 @@ export default {
       }
     },
     async appointPoints() {
+      return;
       var id = "1";
       console.log("Blin");
       /* const res = await fetch(`http://localhost:5001/teams/`);

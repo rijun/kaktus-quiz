@@ -2,4 +2,15 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 
-createApp(App).use(router).mount('#app')
+const app = createApp(App);
+getQuestions();
+app.use(router).mount('#app');
+
+async function getQuestions() {
+   await fetch("http://localhost:5002/questions")
+   .then(response => response.json())
+   .then(data => {
+       app.config.globalProperties.questionData = data;
+    })
+   .catch(error => console.error(error));
+}
