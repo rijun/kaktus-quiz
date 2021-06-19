@@ -92,7 +92,7 @@ export default {
       if (this.questions && this.questions.length > 0) {
         let streakCounter = 0;
         console.log(streakCounter);
-        this.questions.forEach(function (question) {
+        this.questions.forEach(function(question) {
           if (!question.rightAnswer) {
             return;
           } else if (question.rightAnswer === true) {
@@ -114,7 +114,7 @@ export default {
       }
       /* Check if all questions have been answered */
       let questionsAnswered = 0;
-      this.questions.forEach(function (question) {
+      this.questions.forEach(function(question) {
         question.rightAnswer !== null ? questionsAnswered++ : null;
       });
       return questionsAnswered === this.questions.length;
@@ -144,7 +144,8 @@ export default {
       );
 
       //convert questions into json
-      let jsonResponse = await response.json();
+      /* let jsonResponse = await response.json(); */
+      let jsonResponse = "../../test.json"
       let index = 0; // index is used to identify single answer
       //manipulate questions
       let data = jsonResponse.results.map((question) => {
@@ -174,7 +175,7 @@ export default {
       this.loading = false;
     },
 
-    handleButtonClick: function (event) {
+    handleButtonClick: function(event) {
       /* Find index to identiy question object in data */
       let index = event.target.getAttribute("index");
       let pollutedUserAnswer = event.target.innerHTML; // innerHTML is polluted with decoded HTML entities e.g ' from &#039;
@@ -193,12 +194,12 @@ export default {
       this.checkAnswer(event, index);
     },
 
-    checkAnswer: function (event, index) {
+    checkAnswer: function(event, index) {
       let question = this.questions[index];
       if (question.userAnswer) {
         if (this.index < this.questions.length - 1) {
           setTimeout(
-            function () {
+            function() {
               this.index += 1;
             }.bind(this),
             1500
@@ -220,7 +221,7 @@ export default {
           /* Show right Answer */
           let correctAnswer = this.questions[index].correct_answer;
           let allButtons = document.querySelectorAll(`[index="${index}"]`);
-          allButtons.forEach(function (button) {
+          allButtons.forEach(function(button) {
             if (button.innerHTML === correctAnswer) {
               button.classList.add("showRightAnswer");
             }

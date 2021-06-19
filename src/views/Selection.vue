@@ -44,9 +44,18 @@ export default {
       bttn.classList.add("disabled");
       console.log("route disabled");
       router.push({ path: "./selection", params: { difficulty: this.dificulty, category: this.category }});
+    },
+
+    async test() {
+      console.log("somethjing")
     }
 
-  }
+  },
+  /* async unmounted() {
+    console.log('changed page')
+    let selection = document.getElementById('test');
+    selection.classList.add('disabled')
+  } */
 };
 </script>
 

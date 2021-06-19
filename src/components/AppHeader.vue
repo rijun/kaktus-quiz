@@ -3,11 +3,9 @@
     <nav class="navbar navbar-expand-lg navbar-light">
       <img class="navbar-image" src="../assets/Logo_rund.png" />
       <div>
-        <div class="text-center">
-          <router-link class="navbar-brand" @click="unhideButton" to="/"
-            >Kaktus-Quiz</router-link
-          >
-        </div>
+        <router-link class="navbar-brand" @click="unhideButton" to="/"
+          >Kaktus-Quiz</router-link
+        >
         <button
           class="navbar-toggler"
           type="button"
@@ -20,18 +18,18 @@
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
-      
-        <!-- <button id="addJSON" class="btn btn-primary addJSON">
+
+      <!-- <button id="addJSON" class="btn btn-primary addJSON">
           <i class="far fa-file-code"></i>
         </button> -->
-        <Button
-          type="button"
-          text="Team Erstellen"
-          id="createTeam"
-          class="generateTeam"
-          data-bs-toggle="modal"
-          data-bs-target="#teamCreator"
-        />
+      <Button
+        type="button"
+        text="Team Erstellen"
+        id="createTeam"
+        class="generateTeam"
+        data-bs-toggle="modal"
+        data-bs-target="#teamCreator"
+      />
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
           <div id="Button"></div>
@@ -65,12 +63,11 @@ export default {
 </script>
 
 <style scoped>
-
 .generateTeam {
   font-size: 20px;
   height: 50px;
   width: 200px;
   position: absolute;
-  right: 50px
+  right: 50px;
 }
 </style>
