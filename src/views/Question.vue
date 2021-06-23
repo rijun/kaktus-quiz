@@ -139,18 +139,19 @@ export default {
   methods: {
     async fetchQuestions() {
       this.loading = true;
-      let response = await fetch(
+      /* let response = await fetch(
         "https://opentdb.com/api.php?amount=3&category=12&difficulty=" +
           this.difficulty
-      );
+      ); */
 
       //convert questions into json
       /* let jsonResponse = await response.json(); */
-      let jsonResponse = "../../test.json"
+      //let jsonResponse = "../../test.json"
       /* const ress = await fetch("http://localhost:5002/results")
-      const da = await ress.json();
-      console.log(da) */
+      const da = await ress.json();*/
+      console.log("da") 
       let res = await fetch("http://localhost:5002/questions").then(response => response.json()).catch(error => console.error(error));
+      console.log(res)
       let results = res[this.category][this.variant];
       let index = 0; // index is used to identify single answer
       //manipulate questions
