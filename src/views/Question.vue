@@ -32,6 +32,7 @@
 import router from "../router";
 
 export default {
+  // data() function stores state variables
   name: "Question",
   data() {
     return {
@@ -58,57 +59,10 @@ export default {
       //Keyword this usually refers to the Vue Component Instance, e.g. this.questions points
       //to the questions array in the data() function
     },
-    /* score() {
-      if (this.questions !== []) {
-        // Here, we want to collect data in an object about the users statistics - later be emitted on an event when users finishes quiz
-        return {
-          allQuestions: this.questions.length,
-          answeredQuestions: this.questions.reduce((count, currentQuestion) => {
-            if (currentQuestion.userAnswer) {
-              // userAnswer is set when user has answered a question, no matter if right or wrong
-              count++;
-            }
-            return count;
-          }, 0),
-          correctlyAnsweredQuestions: this.questions.reduce(
-            (count, currentQuestion) => {
-              if (currentQuestion.rightAnswer) {
-                // rightAnswer is true, if user answered correctly
-                count++;
-              }
-              return count;
-            },
-            0
-          ),
-        };
-      } else {
-        return {
-          allQuestions: 0,
-          answeredQuestions: 0,
-          correctlyAnsweredQuestions: 0,
-        };
-      }
-    }, */
-    correctAnswers() {
-      if (this.questions && this.questions.length > 0) {
-        let streakCounter = 0;
-        console.log(streakCounter);
-        this.questions.forEach(function(question) {
-          if (!question.rightAnswer) {
-            return;
-          } else if (question.rightAnswer === true) {
-            streakCounter++;
-          }
-        });
-        return streakCounter;
-      } else {
-        return "--";
-      }
-    },
-    pluralizeAnswer() {
+    /* pluralizeAnswer() {
       // For grammatical correctness
       return this.correctAnswers === 1 ? "Answer" : "Answers";
-    },
+    }, */
     quizCompleted() {
       if (this.questions.length === 0) {
         return false;
@@ -221,7 +175,7 @@ export default {
           this.questions[index].rightAnswer = true;
 
           //Here i will appoint the earned points to the team
-          this.appointPoints();
+          //this.appointPoints();
         } else {
           /* Mark users answer as wrong answer */
           event.target.classList.add("wrongAnswer");
@@ -237,11 +191,11 @@ export default {
         }
       }
     },
-    async appointPoints() {
+    /* async appointPoints() {
       return;
       var id = "1";
       console.log("Blin");
-      /* const res = await fetch(`http://localhost:5001/teams/`);
+      const res = await fetch(`http://localhost:5001/teams/`);
 
       const data = await res.json();
 
@@ -254,7 +208,7 @@ export default {
           console.log(data[i].points)
           break;
         }
-      } */
+      }
       const toggleTeam = await this.fetchTeam(id);
       const updateTeam = { ...toggleTeam, points: toggleTeam.points + 100 };
 
@@ -280,7 +234,7 @@ export default {
       const data = await res.json();
 
       return data;
-    },
+    },*/
   },
   //Code inside mounted() runs after the Component has mounted
   mounted() {

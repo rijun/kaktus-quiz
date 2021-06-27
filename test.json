@@ -30,20 +30,20 @@
         "film": {
             "first": [{
                 "question": "Die aus Österreich stammende Schauspielerin Hedy Lamarr ging in den 1930er-Jahren nach Hollywood und war nebenberuflich eine ...?",
-                "correct_answer": "Erfinderin, die die Grundlage für die moderne Mobiltelefonie legte",
+                "correct_answer": "Erfinderin, die die Grundlage für die moderne Mobiltelefonie legte.",
                 "incorrect_answers": [
-                    "Rennfahrerin, die auf allen Kontinenten Rennen fuhr",
-                    "Autorin, die unter dem Pseudonym Virginia Woolf Bestseller schrieb",
-                    "Erfinderin, die die Grundlage für die moderne Mobiltelefonie legte"
+                    "Rennfahrerin, die auf allen Kontinenten Rennen fuhr.",
+                    "Autorin, die unter dem Pseudonym Virginia Woolf Bestseller schrieb.",
+                    "Automechanikerin, die AUtos von Prominenten repariert hat."
                 ],
                 "difficulty": "easy"
             }, {
                 "question": "Um einen traditionellen Millionärssalat herstellen zu können, müssen Köche auf den Seychellen ...?",
-                "correct_answer": "Die komprimierte Luft im Ballon wirkt wie ein Verstärker.",
+                "correct_answer": "warten, bis eine Palme von selbst umfällt",
                 "incorrect_answers": [
-                    "Die Spannung der Ballonhaut sorgt für starke Vibrationen.",
-                    "Die komprimierte Luft im Ballon wirkt wie ein Verstärker.",
-                    "Die runde Oberfläche transportiert Schall in mehrere Richtungen."
+                    "die Mondphasen sehr genau studieren",
+                    "am Strand nach angespülten Seeigeln suchen",
+                    "an bestimmten Tagen ein Ritual ausüben"
                 ],
                 "difficulty": "hard"
             }]
@@ -54,7 +54,7 @@
                 "correct_answer": "Die komprimierte Luft im Ballon wirkt wie ein Verstärker.",
                 "incorrect_answers": [
                     "Die Spannung der Ballonhaut sorgt für starke Vibrationen.",
-                    "Die komprimierte Luft im Ballon wirkt wie ein Verstärker.",
+                    "Die Gummihafte Haut des Ballons sorgt für eine erhöhte Frequenz.",
                     "Die runde Oberfläche transportiert Schall in mehrere Richtungen."
                 ],
                 "difficulty": "easy"
@@ -63,7 +63,7 @@
                 "correct_answer": "Nein, die Kassenbon-Pflicht gilt nur für den Verkäufer.",
                 "incorrect_answers": [
                     "nur, wenn es sich um verderbliche Ware handelt",
-                    "Ja, die Kassenbon-Pflicht gilt für Käufer und Verkäufer.",
+                    "nur, wenn die Ware einen bestimmten Betrag überschreitet.",
                     "Nein, die Kassenbon-Pflicht gilt nur für den Verkäufer."
                 ],
                 "difficulty": "hard"
@@ -76,7 +76,7 @@
                 "incorrect_answers": [
                     "Frischhaltefolie",
                     "Glasbehälter",
-                    "Müllbeutel"
+                    "Plastikbehälter"
                 ],
                 "difficulty": "easy"
             }, {
@@ -85,7 +85,7 @@
                 "incorrect_answers": [
                     "Rennfahrerin, die auf allen Kontinenten Rennen fuhr",
                     "Autorin, die unter dem Pseudonym Virginia Woolf Bestseller schrieb",
-                    "Erfinderin, die die Grundlage für die moderne Mobiltelefonie legte"
+                    "Wirtin, die eine berühmte Kneipe in Hollywood betrieb"
                 ],
                 "difficulty": "hard"
             }]
@@ -97,14 +97,14 @@
                 "incorrect_answers": [
                     "Krankenkassenbeiträge zu sparen",
                     "einen kurzfristigen Termin bei einem Facharzt zu finden",
-                    "Risiken bei der Medikamenteneinnahme zu vermeiden"
+                    "bestimmte Krankheiten vorzubeugen"
                 ],
                 "difficulty": "easy"
             }, {
                 "question": "Wie kam das größte Amphitheater des römischen Reiches zu seinem heutigen Namen „Kolosseum“?",
                 "correct_answer": "Eine riesige Statue stand einst neben der Arena.",
                 "incorrect_answers": [
-                    "Eine riesige Statue stand einst neben der Arena.",
+                    "Die Arena wurde nach ihrem Architekten 'Colossius'.",
                     "Die Ausmaße übertrafen die damalige Vorstellungskraft.",
                     "Die stattfindenden Spiele waren „colossicotera“, also „grandios“."
                 ],
@@ -118,14 +118,14 @@
                 "incorrect_answers": [
                     "unter Wasser besonders warm hält",
                     "vor Blitzeinschlägen schützt",
-                    "bei Kontakt mit Schweiß ein feines Zitronenaroma ausströmt"
+                    "sich bei Kontakt mit Wasser verfärbt"
                 ],
                 "difficulty": "easy"
             }, {
                 "question": "Forscher fanden heraus, dass Ziegen ...?",
                 "correct_answer": "die Emotionen anderer Ziegen hören können",
                 "incorrect_answers": [
-                    "die Emotionen anderer Ziegen hören können",
+                    "bei der Auswahl des Partners auf die größe der Augen achten",
                     "neidisch auf die Bärte von anderen Ziegen sind",
                     "bei der Partnerwahl auf die Hufgröße achten"
                 ],
@@ -138,7 +138,7 @@
                 "correct_answer": "Ein Flitzer zeigte dem Schiedsrichter die Rote Karte.",
                 "incorrect_answers": [
                     "Brügges Trainer wechselte sich selbst ein und schoss ein Eigentor.",
-                    "Ein Flitzer zeigte dem Schiedsrichter die Rote Karte.",
+                    "Wegen des Ablaufes des MHD gab es Würstchen umsonst",
                     "Wegen eines Defekts lief durchgehend die Bewässerungsanlage."
                 ],
                 "difficulty": "easy"
@@ -148,7 +148,7 @@
                 "incorrect_answers": [
                     "26. April 1986, 05:49:21",
                     "28. April 1986, 16:17:35",
-                    "26. April 1986, 01:23:58"
+                    "26. April 1986, 03:53:23"
                 ],
                 "difficulty": "hard"
             }]
