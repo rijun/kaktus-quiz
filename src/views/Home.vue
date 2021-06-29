@@ -1,5 +1,6 @@
 <template>
   <AddTeam @add-team="addTeam" />
+  <AddJson @add-json="addJson" />
   <Teams :teams="teams" />
   <router-link
     to="/selection"
@@ -12,6 +13,7 @@
 <script>
 import Button from "../components/Buttons";
 import AddTeam from "../components/AddTeam";
+import AddJson from "../components/AddJson";
 import Teams from "../components/Teams";
 
 export default {
@@ -20,6 +22,7 @@ export default {
     Button,
     AddTeam,
     Teams,
+    AddJson,
   },
   data() {
     return {

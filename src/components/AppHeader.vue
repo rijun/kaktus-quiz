@@ -18,10 +18,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
-
-      <!-- <button id="addJSON" class="btn btn-primary addJSON">
-          <i class="far fa-file-code"></i>
-        </button> -->
+      <Button type="button" text="Add Quiz" id="addJSON" class="addJSON" data-bs-toggle="modal" data-bs-target="#AddJson"/>
       <Button
         type="button"
         text="Team Erstellen"
@@ -42,6 +39,7 @@
 <script>
 import Button from "./Buttons";
 import AddTeam from "./AddTeam";
+import AddJSON from "./AddJson";
 export default {
   name: "AppHeader",
   props: {
@@ -51,6 +49,7 @@ export default {
   components: {
     Button,
     AddTeam,
+    AddJSON,
   },
   methods: {
     unhideButton() {
@@ -69,5 +68,13 @@ export default {
   width: 200px;
   position: absolute;
   right: 50px;
+}
+
+.addJSON {
+  font-size: 20px;
+  height: 50px;
+  width: 200px;
+  position: absolute;
+  right: 300px;
 }
 </style>
