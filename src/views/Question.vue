@@ -4,7 +4,10 @@
     <!-- div#correctAnswers -->
     <hr class="divider" />
     <div>
-      <h1 class="question" v-html="loading ? 'Loading...' : currentQuestion.question"></h1>
+      <h1
+        class="question"
+        v-html="loading ? 'Loading...' : currentQuestion.question"
+      ></h1>
       <form v-if="currentQuestion">
         <button
           v-for="answer in currentQuestion.answers"
@@ -17,21 +20,31 @@
       </form>
       <hr class="divider" />
     </div>
+    <h1>Your difficulty is {{ difficulty }}</h1>
+    <h1>Your category is {{ category }}</h1>
     <!-- in the div of v-html is nothing allowed, not even comments -->
     <!-- Only the first question is displayed -->
   </div>
 </template>
 
 <script>
+import router from "../router";
 export default {
-  name: "Quiz",
+  name: "Question",
   //data() function stores state variable
   data() {
     return {
       questions: [],
       loading: true,
       index: 0,
+      variant: "",
+      difficulty: "",
     };
+  },
+  //this code gets the sent params and declares these to the variables
+  created() {
+    this.variant = this.$route.params.variant;
+    this.category = this.$route.params.category;
   },
   computed: {
     currentQuestion() {
@@ -39,6 +52,34 @@ export default {
         return this.questions[this.index];
       }
       return null;
+      //Keyword this usually refers to the Vue Component Instance, e.g. this.questions points
+      //to the questions array in the data() function
+    },
+    quizCompleted() {
+      if(this.questions.length === 0) {
+        return false;
+      }
+      //Check if all questions have been answered
+      let questionsAnswered = 0;
+      this.questions.forEach(function(question) {
+        question.rightAnswer !== null ?questionsAnswered++ : null;
+      });
+      return questionsAnswered === this.questions.length;
+    }
+  },
+  watch: {
+    quizCompleted(completed) {
+      /*
+       * Watcher on quizCompleted fires event "quiz-completed"
+       * up to parent App.vue component when completed parameter
+       * returned by quizCompleted computed property true
+       */
+      completed &&
+        setTimeout(() => {
+          this.$emit("quiz-completed", this.score);
+          console.log("completed");
+          router.push({ path: "./selection" });
+        }, 1500); // wait 1,5 seconds until button animation is over
     },
   },
   //Custom methods of the Vue Component
@@ -56,6 +97,8 @@ export default {
         question.answers = [
           question.correct_answer,
           ...question.incorrect_answers,
+          /*The tree dots go to the existing object and get all its properties, copies these and then overwrite
+            explicitly the other properties defined (https://oprea.rocks/blog/what-do-the-three-dots-mean-in-javascript) */
         ];
         // Shuffle question.answers array
         for (let i = question.answers.length - 1; i > 0; i--) {
@@ -74,6 +117,7 @@ export default {
       console.log(data);
       this.questions = data;
       this.loading = false;
+      this.difficulty = this.questions[this.index]["difficulty"];
     },
     handleButtonClick: function(event) {
       /* Find index to identiy question object in data */
@@ -108,7 +152,7 @@ export default {
             function() {
               this.index += 1;
             }.bind(this),
-            3000
+            1500
           );
         }
         if (question.userAnswer === question.correct_answer) {

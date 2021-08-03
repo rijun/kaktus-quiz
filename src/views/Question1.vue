@@ -42,7 +42,6 @@ export default {
       debug: false,
       variant: "",
       difficulty: "",
-      variant: "",
     };
   },
   //this code gets the sent params and declares these to the variables
