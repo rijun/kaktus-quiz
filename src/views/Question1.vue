@@ -1,10 +1,14 @@
+// Starter-Code: Quiz.vue Component
 <template>
   <div id="quiz-container">
     <h1 id="logo-headline">FRAGE</h1>
     <!-- div#correctAnswers -->
     <hr class="divider" />
     <div>
-      <h1 class="question" v-html="loading ? 'Loading...' : currentQuestion.question"></h1>
+      <h1
+        class="question"
+        v-html="loading ? 'Loading...' : currentQuestion.question"
+      ></h1>
       <form v-if="currentQuestion">
         <button
           v-for="answer in currentQuestion.answers"
@@ -17,21 +21,34 @@
       </form>
       <hr class="divider" />
     </div>
+    <h1>Your difficulty is {{ difficulty }}</h1>
+    <h1>Your category is {{ category }}</h1>
     <!-- in the div of v-html is nothing allowed, not even comments -->
     <!-- Only the first question is displayed -->
   </div>
 </template>
 
 <script>
+import router from "../router";
+
 export default {
-  name: "Quiz",
-  //data() function stores state variable
+  // data() function stores state variables
+  name: "Question",
   data() {
     return {
       questions: [],
       loading: true,
       index: 0,
+      debug: false,
+      variant: "",
+      difficulty: "",
+      variant: "",
     };
+  },
+  //this code gets the sent params and declares these to the variables
+  created() {
+    this.variant = this.$route.params.variant;
+    this.category = this.$route.params.category;
   },
   computed: {
     currentQuestion() {
@@ -39,25 +56,68 @@ export default {
         return this.questions[this.index];
       }
       return null;
+      //Keyword this usually refers to the Vue Component Instance, e.g. this.questions points
+      //to the questions array in the data() function
+    },
+    /* pluralizeAnswer() {
+      // For grammatical correctness
+      return this.correctAnswers === 1 ? "Answer" : "Answers";
+    }, */
+    quizCompleted() {
+      if (this.questions.length === 0) {
+        return false;
+      }
+      /* Check if all questions have been answered */
+      let questionsAnswered = 0;
+      this.questions.forEach(function(question) {
+        question.rightAnswer !== null ? questionsAnswered++ : null;
+      });
+      return questionsAnswered === this.questions.length;
     },
   },
-  //Custom methods of the Vue Component
+  watch: {
+    quizCompleted(completed) {
+      /*
+       * Watcher on quizCompleted fires event "quiz-completed"
+       * up to parent App.vue component when completed parameter
+       * returned by quizCompleted computed property true
+       */
+      completed &&
+        setTimeout(() => {
+          this.$emit("quiz-completed", this.score);
+          console.log("completed");
+          router.push({ path: "./selection" });
+        }, 1500); // wait 1,5 seconds until button animation is over
+    },
+  },
   methods: {
     async fetchQuestions() {
-      console.log("Blin");
       this.loading = true;
-      let response = await fetch(
-        "https://opentdb.com/api.php?amount=10&category=9"
-      );
-      let jsonResponse = await response.json();
+      /* let response = await fetch(
+        "https://opentdb.com/api.php?amount=3&category=12&difficulty=" +
+          this.difficulty
+      ); */
+
+      //convert questions into json
+      /* let jsonResponse = await response.json(); */
+      //let jsonResponse = "../../test.json"
+      /* const ress = await fetch("http://localhost:5002/results")
+      const da = await ress.json();*/
+      console.log("da") 
+      let res = await fetch("http://localhost:5002/questions").then(response => response.json()).catch(error => console.error(error));
+      console.log(res)
+      let results = res[this.category][this.variant];
       let index = 0; // index is used to identify single answer
-      let data = jsonResponse.results.map((question) => {
+      //manipulate questions
+      let data = results.map((question) => {
         // put answers on question into single array
         question.answers = [
           question.correct_answer,
           ...question.incorrect_answers,
+          /*The tree dots go to the existing object and get all its properties, copies these and then overwrite
+            explicitly the other properties defined (https://oprea.rocks/blog/what-do-the-three-dots-mean-in-javascript) */
         ];
-        // Shuffle question.answers array
+        /* Shuffle question.answers array */
         for (let i = question.answers.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
           [question.answers[i], question.answers[j]] = [
@@ -65,7 +125,7 @@ export default {
             question.answers[i],
           ];
         }
-        // add rightAnswer and key property to each question
+        // mention in Step 1
         question.rightAnswer = null;
         question.key = index;
         index++;
@@ -74,48 +134,48 @@ export default {
       console.log(data);
       this.questions = data;
       this.loading = false;
+      this.difficulty = this.questions[this.index]["difficulty"];
     },
+
     handleButtonClick: function(event) {
       /* Find index to identiy question object in data */
       let index = event.target.getAttribute("index");
-
       let pollutedUserAnswer = event.target.innerHTML; // innerHTML is polluted with decoded HTML entities e.g ' from &#039;
       /* Clear from pollution with ' */
       let userAnswer = pollutedUserAnswer.replace(/'/, "&#039;");
-
       /* Set userAnswer on question object in data */
       this.questions[index].userAnswer = userAnswer;
-
       /* Set class "clicked" on button with userAnswer -> for CSS Styles; Disable other sibling buttons */
       event.target.classList.add("clicked");
       let allButtons = document.querySelectorAll(`[index="${index}"]`);
-
       for (let i = 0; i < allButtons.length; i++) {
         if (allButtons[i] === event.target) continue;
-
         allButtons[i].setAttribute("disabled", "");
       }
-
       /* Invoke checkAnswer to check Answer */
       this.checkAnswer(event, index);
     },
+
     checkAnswer: function(event, index) {
       let question = this.questions[index];
-
       if (question.userAnswer) {
         if (this.index < this.questions.length - 1) {
           setTimeout(
             function() {
               this.index += 1;
             }.bind(this),
-            3000
+            1500
           );
         }
         if (question.userAnswer === question.correct_answer) {
           /* Set class on Button if user answered right, to celebrate right answer with animation joyfulButton */
           event.target.classList.add("rightAnswer");
           /* Set rightAnswer on question to true, computed property can track a streak out of 10 questions */
+          console.log("correct answer");
           this.questions[index].rightAnswer = true;
+
+          //Here i will appoint the earned points to the team
+          //this.appointPoints();
         } else {
           /* Mark users answer as wrong answer */
           event.target.classList.add("wrongAnswer");
@@ -131,8 +191,52 @@ export default {
         }
       }
     },
-    //Code inside mounted() runs after the component has mounted
+    /* async appointPoints() {
+      return;
+      var id = "1";
+      console.log("Blin");
+      const res = await fetch(`http://localhost:5001/teams/`);
+
+      const data = await res.json();
+
+      console.log(data);
+      for (var i = 0; i < data.length; i++) {
+        console.log(data[i])
+        if (data[i].id === id) {
+          console.log("entered loop")
+          data[i].name = "Cyka";
+          console.log(data[i].points)
+          break;
+        }
+      }
+      const toggleTeam = await this.fetchTeam(id);
+      const updateTeam = { ...toggleTeam, points: toggleTeam.points + 100 };
+
+      const res = await fetch(`http://localhost:5001/teams/${id}`, {
+        method: "PUT", //PUT is used for modifying json
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(updateTeam),
+      });
+
+      const data = await res.json();
+      console.log(data);
+
+      this.teams = this.teams.map((team) =>
+        team.id === id ? { ...team, points: data.points } : team
+      );
+    },
+
+    async fetchTeam(id) {
+      const res = await fetch(`http://localhost:5001/teams/${id}`);
+
+      const data = await res.json();
+
+      return data;
+    },*/
   },
+  //Code inside mounted() runs after the Component has mounted
   mounted() {
     this.fetchQuestions();
   },
